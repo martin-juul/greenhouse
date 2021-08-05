@@ -111,6 +111,10 @@ void WebServer::tick() {
         string data = s.substr(len - 11, len);
 
         string temp = data.substr(0, 4);
+
+        // For some reason we have to parse the second field like this
+        // the substr indices doesn't match, nor make any sense.
+        // I'm assuming it's due to the first call not being immutable......
         string dewity = data.substr(4, 4).substr(1, 2); // wat 🤡
         string humidity = data.substr(8, 9);
         
