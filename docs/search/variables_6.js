@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tx_5fbuffer_46',['tx_buffer',['../webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829',1,'webserver.cpp']]]
+  ['server_49',['server',['../webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2',1,'webserver.cpp']]]
 ];

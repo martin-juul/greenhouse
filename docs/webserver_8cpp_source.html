@@ -75,7 +75,7 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;TCPSocket.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="website_8h.html">website.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c">    7</a></span>&#160;<span class="preprocessor">#define IP &quot;192.168.1.181&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c">    7</a></span>&#160;<span class="preprocessor">#define IP &quot;192.168.1.100&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="webserver_8cpp.html#a861181f1d81b4ccb482b33c7bffad5d1">    8</a></span>&#160;<span class="preprocessor">#define GATEWAY &quot;192.168.1.1&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="webserver_8cpp.html#ae656bfb3c008ca5a1f0ad19bd6c749e8">    9</a></span>&#160;<span class="preprocessor">#define NETMASK &quot;255.255.255.0&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="webserver_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2">   10</a></span>&#160;<span class="preprocessor">#define PORT 80</span></div>
@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b">   20</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b">requests</a> = 0;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">   22</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a>() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  printf(<span class="stringliteral">&quot;Starting\r\n&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  printf(<span class="stringliteral">&quot;Starting\n&quot;</span>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a">net</a> = <span class="keyword">new</span> EthernetInterface;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
@@ -125,72 +125,68 @@ $(function() {
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  printf(<span class="stringliteral">&quot;Netmask: %s\r\n&quot;</span>, netmaskAddr ? netmaskAddr : <span class="stringliteral">&quot;None&quot;</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  printf(<span class="stringliteral">&quot;Gateway: %s\r\n\r\n&quot;</span>, gatewayAddr ? gatewayAddr : <span class="stringliteral">&quot;None&quot;</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">/* Open the server on ethernet stack */</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.open(<a class="code" href="webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a">net</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">/* Bind the HTTP port (TCP 80) to the server */</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.bind(ip);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.listen(<a class="code" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a>() {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  printf(<span class="stringliteral">&quot;=========================================\r\n&quot;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  nsapi_error_t error = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a> = <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.accept(&amp;error);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b">requests</a>++;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordflow">if</span> (error != 0) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    printf(<span class="stringliteral">&quot;Connection failed!\r\n&quot;</span>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;set_timeout(200);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;getpeername(&amp;<a class="code" href="webserver_8cpp.html#af86c5d9a33a661ea6463bd4c6845122d">clientAddress</a>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    printf(<span class="stringliteral">&quot;Client with IP address %s connected.\r\n\r\n&quot;</span>,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;           <a class="code" href="webserver_8cpp.html#af86c5d9a33a661ea6463bd4c6845122d">clientAddress</a>.get_ip_address());</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    error = <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;recv(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>, <span class="keyword">sizeof</span>(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>));</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">switch</span> (error) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      printf(<span class="stringliteral">&quot;Recieved buffer is empty.\r\n&quot;</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.open(<a class="code" href="webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a">net</a>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.bind(ip);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.listen(<a class="code" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a>() {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  printf(<span class="stringliteral">&quot;=========================================\r\n&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  nsapi_error_t error = 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a> = <a class="code" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a>.accept(&amp;error);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b">requests</a>++;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">if</span> (error != 0) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    printf(<span class="stringliteral">&quot;Connection failed!\r\n&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;set_timeout(200);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;getpeername(&amp;<a class="code" href="webserver_8cpp.html#af86c5d9a33a661ea6463bd4c6845122d">clientAddress</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    printf(<span class="stringliteral">&quot;Client with IP address %s connected.\r\n\r\n&quot;</span>,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;           <a class="code" href="webserver_8cpp.html#af86c5d9a33a661ea6463bd4c6845122d">clientAddress</a>.get_ip_address());</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    error = <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;recv(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>, <span class="keyword">sizeof</span>(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">switch</span> (error) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      printf(<span class="stringliteral">&quot;Recieved buffer is empty.\r\n&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">case</span> -1:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      printf(<span class="stringliteral">&quot;Failed to read data from client.\r\n&quot;</span>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">case</span> -1:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      printf(<span class="stringliteral">&quot;Failed to read data from client.\r\n&quot;</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      printf(<span class="stringliteral">&quot;Recieved Data: %d\n\r\n\r%.*s\r\n\n\r&quot;</span>, strlen(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>),</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;             strlen(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>), <a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>[0] == <span class="charliteral">&#39;G&#39;</span> &amp;&amp; <a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>[1] == <span class="charliteral">&#39;E&#39;</span> &amp;&amp; <a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>[2] == <span class="charliteral">&#39;T&#39;</span>) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">// setup http response header &amp; data</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        sprintf(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>,</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="stringliteral">&quot;HTTP/1.1 200 OK\nContent-Length: %d\r\nContent-Type: &quot;</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="stringliteral">&quot;text\r\nConnection: Close\r\n\r\n&quot;</span>,</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                strlen(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>));</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// strcat(tx_buffer, rx_buffer);</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      printf(<span class="stringliteral">&quot;Recieved Data: %d\n\r\n\r%.*s\r\n\n\r&quot;</span>, strlen(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>),</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;             strlen(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>), <a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>[0] == <span class="charliteral">&#39;G&#39;</span> &amp;&amp; <a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>[1] == <span class="charliteral">&#39;E&#39;</span> &amp;&amp; <a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>[2] == <span class="charliteral">&#39;T&#39;</span>) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// setup http response header &amp; data</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        sprintf(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="stringliteral">&quot;HTTP/1.1 200 OK\nContent-Length: %d\r\nContent-Type: &quot;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="stringliteral">&quot;text\r\nConnection: Close\r\n\r\n&quot;</span>,</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                strlen(<a class="code" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a>));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">// strcat(tx_buffer, rx_buffer);</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        strcpy(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>, <a class="code" href="website_8h.html#a5af132f390e0c539ea85593d8b05630a">homepage</a>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;send(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>, strlen(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>));</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        strcpy(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>, <a class="code" href="website_8h.html#a5af132f390e0c539ea85593d8b05630a">homepage</a>);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>-&gt;send(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>, strlen(<a class="code" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a>));</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">// printf(&quot;------------------------------------\r\n&quot;);</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">// printf(&quot;Sent:\r\n%s\r\n&quot;, tx_buffer);</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        printf(<span class="stringliteral">&quot;echo done.\r\n&quot;</span>);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">// printf(&quot;------------------------------------\r\n&quot;);</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// printf(&quot;Sent:\r\n%s\r\n&quot;, tx_buffer);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        printf(<span class="stringliteral">&quot;echo done.\r\n&quot;</span>);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">  113</a></span>&#160;TCPSocket* <a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a>() {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">  117</a></span>&#160;TCPSocket* <a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a>() {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 <div class="ttc" id="aclass_web_server_html_a5a0b6415cbf2e24be77605b6557a08ad"><div class="ttname"><a href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a></div><div class="ttdeci">int start()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00022">webserver.cpp:22</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00068">webserver.cpp:68</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00117">webserver.cpp:117</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00064">webserver.cpp:64</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00113">webserver.cpp:113</a></div></div>
 <div class="ttc" id="awebserver_8cpp_html_a116ad46e6edf05b4b27fac4960ea4939"><div class="ttname"><a href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a></div><div class="ttdeci">TCPSocket * clientSocket</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00015">webserver.cpp:15</a></div></div>
 <div class="ttc" id="awebserver_8cpp_html_a51cf5c4f359847e05a99fd2bcfc883ec"><div class="ttname"><a href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a></div><div class="ttdeci">char rx_buffer[1024]</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00017">webserver.cpp:17</a></div></div>
 <div class="ttc" id="awebserver_8cpp_html_a58a2aa14ca04823eb175fa13ae0417b2"><div class="ttname"><a href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a></div><div class="ttdeci">TCPSocket server</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00014">webserver.cpp:14</a></div></div>
@@ -209,7 +205,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 5 2021 10:30:22 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 5 2021 10:57:22 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
