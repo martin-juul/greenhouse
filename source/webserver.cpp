@@ -20,8 +20,6 @@ char tx_buffer[1024] = {0};
 int requests = 0;
 
 int WebServer::start() {
-  printf("Starting\n");
-
   net = new EthernetInterface;
 
   if (!net) {
@@ -31,7 +29,7 @@ int WebServer::start() {
   net->set_network(IP, NETMASK, GATEWAY); // include to use static IP address
   nsapi_size_or_error_t r = net->connect();
   if (r != 0) {
-    printf("Error! net->connect() returned: %d\n", r);
+    printf("[webserver]: error! net->connect() returned: %d\n", r);
     return r;
   }
 
@@ -50,9 +48,9 @@ int WebServer::start() {
   const char *netmask_addr = netmask.get_ip_address();
   const char *gateway_addr = gateway.get_ip_address();
 
-  printf("IP address: %s\r\n", ip_addr ? ip_addr : "None");
-  printf("Netmask: %s\r\n", netmask_addr ? netmask_addr : "None");
-  printf("Gateway: %s\r\n\r\n", gateway_addr ? gateway_addr : "None");
+  printf("[webserver]: IP address: %s\r\n", ip_addr ? ip_addr : "None");
+  printf("[webserver]: Netmask: %s\r\n", netmask_addr ? netmask_addr : "None");
+  printf("[webserver]: Gateway: %s\r\n\r\n", gateway_addr ? gateway_addr : "None");
 
   server.open(net);
   server.bind(ip);
@@ -69,25 +67,25 @@ void WebServer::tick() {
   client_socket = server.accept(&error);
   requests++;
   if (error != 0) {
-    printf("Connection failed!\r\n");
+    printf("[webserver]: Connection failed!\r\n");
   } else {
     client_socket->set_timeout(200);
     client_socket->getpeername(&client_address);
-    printf("Client with IP address %s connected.\r\n\r\n",
+    printf("[webserver]: Client with IP address %s connected.\r\n\r\n",
            client_address.get_ip_address());
     error = client_socket->recv(rx_buffer, sizeof(rx_buffer));
 
     switch (error) {
     case 0:
-      printf("Recieved buffer is empty.\r\n");
+      printf("[webserver]: Recieved buffer is empty.\r\n");
       break;
 
     case -1:
-      printf("Failed to read data from client.\r\n");
+      printf("[webserver]: Failed to read data from client.\r\n");
       break;
 
     default:
-      printf("Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rx_buffer), strlen(rx_buffer), rx_buffer);
+      printf("[webserver]: Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rx_buffer), strlen(rx_buffer), rx_buffer);
       if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T') {
         // setup http response header & data
         sprintf(tx_buffer,
