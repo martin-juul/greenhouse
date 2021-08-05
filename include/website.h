@@ -1,3 +1,5 @@
+#pragma once
+
 static const char homepage[] = \
     "<!doctype html>\n"
     "<html lang=\"en\">\n"
