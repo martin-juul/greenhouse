@@ -25,7 +25,6 @@ int WebServer::start() {
   net = new EthernetInterface;
 
   if (!net) {
-    printf("Error! No network inteface found.\n");
     return 0;
   }
 
