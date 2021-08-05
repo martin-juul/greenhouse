@@ -110,10 +110,10 @@ Variables</h2></td></tr>
 <tr class="separator:ae6babd4393259421ad93d2dc4315ed9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58a2aa14ca04823eb175fa13ae0417b2"><td class="memItemLeft" align="right" valign="top">TCPSocket&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">server</a></td></tr>
 <tr class="separator:a58a2aa14ca04823eb175fa13ae0417b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116ad46e6edf05b4b27fac4960ea4939"><td class="memItemLeft" align="right" valign="top">TCPSocket *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#a116ad46e6edf05b4b27fac4960ea4939">clientSocket</a></td></tr>
-<tr class="separator:a116ad46e6edf05b4b27fac4960ea4939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af86c5d9a33a661ea6463bd4c6845122d"><td class="memItemLeft" align="right" valign="top">SocketAddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#af86c5d9a33a661ea6463bd4c6845122d">clientAddress</a></td></tr>
-<tr class="separator:af86c5d9a33a661ea6463bd4c6845122d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98b17440ac4b68bfe5cf770e08a417cf"><td class="memItemLeft" align="right" valign="top">TCPSocket *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf">client_socket</a></td></tr>
+<tr class="separator:a98b17440ac4b68bfe5cf770e08a417cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af660b380340c6f6f9b1b1a3626d09b53"><td class="memItemLeft" align="right" valign="top">SocketAddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#af660b380340c6f6f9b1b1a3626d09b53">client_address</a></td></tr>
+<tr class="separator:af660b380340c6f6f9b1b1a3626d09b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51cf5c4f359847e05a99fd2bcfc883ec"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec">rx_buffer</a> [1024] = {0}</td></tr>
 <tr class="separator:a51cf5c4f359847e05a99fd2bcfc883ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe07075b407d7c1d39ddf7783d86d829"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829">tx_buffer</a> [1024] = {0}</td></tr>
@@ -187,39 +187,39 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="af86c5d9a33a661ea6463bd4c6845122d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af86c5d9a33a661ea6463bd4c6845122d">&#9670;&nbsp;</a></span>clientAddress</h2>
+<a id="af660b380340c6f6f9b1b1a3626d09b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af660b380340c6f6f9b1b1a3626d09b53">&#9670;&nbsp;</a></span>client_address</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SocketAddress clientAddress</td>
+          <td class="memname">SocketAddress client_address</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="webserver_8cpp_source.html#l00016">16</a> of file <a class="el" href="webserver_8cpp_source.html">webserver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00064">WebServer::tick()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00062">WebServer::tick()</a>.</p>
 
 </div>
 </div>
-<a id="a116ad46e6edf05b4b27fac4960ea4939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a116ad46e6edf05b4b27fac4960ea4939">&#9670;&nbsp;</a></span>clientSocket</h2>
+<a id="a98b17440ac4b68bfe5cf770e08a417cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98b17440ac4b68bfe5cf770e08a417cf">&#9670;&nbsp;</a></span>client_socket</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">TCPSocket* clientSocket</td>
+          <td class="memname">TCPSocket* client_socket</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="webserver_8cpp_source.html#l00015">15</a> of file <a class="el" href="webserver_8cpp_source.html">webserver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00115">WebServer::getSocket()</a>, and <a class="el" href="webserver_8cpp_source.html#l00064">WebServer::tick()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00107">WebServer::getSocket()</a>, and <a class="el" href="webserver_8cpp_source.html#l00062">WebServer::tick()</a>.</p>
 
 </div>
 </div>
@@ -255,7 +255,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="webserver_8cpp_source.html#l00020">20</a> of file <a class="el" href="webserver_8cpp_source.html">webserver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00064">WebServer::tick()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00062">WebServer::tick()</a>.</p>
 
 </div>
 </div>
@@ -273,7 +273,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="webserver_8cpp_source.html#l00017">17</a> of file <a class="el" href="webserver_8cpp_source.html">webserver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00064">WebServer::tick()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00062">WebServer::tick()</a>.</p>
 
 </div>
 </div>
@@ -291,7 +291,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="webserver_8cpp_source.html#l00014">14</a> of file <a class="el" href="webserver_8cpp_source.html">webserver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00022">WebServer::start()</a>, and <a class="el" href="webserver_8cpp_source.html#l00064">WebServer::tick()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00022">WebServer::start()</a>, and <a class="el" href="webserver_8cpp_source.html#l00062">WebServer::tick()</a>.</p>
 
 </div>
 </div>
@@ -309,14 +309,14 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="webserver_8cpp_source.html#l00018">18</a> of file <a class="el" href="webserver_8cpp_source.html">webserver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00064">WebServer::tick()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00062">WebServer::tick()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 5 2021 10:59:28 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 5 2021 11:06:58 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
