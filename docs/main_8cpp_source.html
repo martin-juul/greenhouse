@@ -71,30 +71,35 @@ $(function() {
 <div class="contents">
 <a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;mbed.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="webserver_8h.html">webserver.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <a class="code" href="class_web_server.html">WebServer</a> webServer;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  webServer.<a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="comment">// listening for http GET request</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    webServer.<a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">tick</a>();</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">    5</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <a class="code" href="class_web_server.html">WebServer</a> webServer;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">int</span> status = webServer.<a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordflow">if</span> (status == 0) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    printf(<span class="stringliteral">&quot;Error: No network interface found.\n&quot;</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    exit(1);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  webServer.<a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">getSocket</a>()-&gt;close();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  printf(<span class="stringliteral">&quot;Client socket closed\r\n&quot;</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="comment">// listening for http GET request</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    webServer.<a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">tick</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  webServer.<a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">getSocket</a>()-&gt;close();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  printf(<span class="stringliteral">&quot;Client socket closed\r\n&quot;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="ttc" id="aclass_web_server_html"><div class="ttname"><a href="class_web_server.html">WebServer</a></div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00005">webserver.h:5</a></div></div>
 <div class="ttc" id="aclass_web_server_html_a5a0b6415cbf2e24be77605b6557a08ad"><div class="ttname"><a href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a></div><div class="ttdeci">int start()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00022">webserver.cpp:22</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00069">webserver.cpp:69</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00118">webserver.cpp:118</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00004">main.cpp:4</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00068">webserver.cpp:68</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00117">webserver.cpp:117</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00005">main.cpp:5</a></div></div>
 <div class="ttc" id="awebserver_8h_html"><div class="ttname"><a href="webserver_8h.html">webserver.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 5 2021 10:20:06 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 5 2021 10:30:22 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
