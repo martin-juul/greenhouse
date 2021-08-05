@@ -1,19 +1,29 @@
 #include "mbed.h"
+#include "mbed_wait_api.h"
 #include "webserver.h"
 #include <cstdlib>
 
-int main(void) {
-  WebServer webServer;
+Thread thread;
+WebServer webServer;
 
+void webserver_thread() {
+  while (true) {
+    webServer.tick();
+  }
+}
+
+int main(void) {
   int status = webServer.start();
   if (status == 0) {
     printf("Error: No network interface found.\n");
     exit(1);
   }
 
+  thread.start(webserver_thread);
+
   // listening for http GET request
   while (true) {
-    webServer.tick();
+    
   }
 
   webServer.getSocket()->close();

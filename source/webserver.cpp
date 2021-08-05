@@ -4,7 +4,7 @@
 #include "TCPSocket.h"
 #include "website.h"
 
-#define IP "192.168.1.181"
+#define IP "192.168.1.100"
 #define GATEWAY "192.168.1.1"
 #define NETMASK "255.255.255.0"
 #define PORT 80
@@ -20,7 +20,7 @@ char tx_buffer[1024] = {0};
 int requests = 0;
 
 int WebServer::start() {
-  printf("Starting\r\n");
+  printf("Starting\n");
 
   net = new EthernetInterface;
 
@@ -54,12 +54,8 @@ int WebServer::start() {
   printf("Netmask: %s\r\n", netmaskAddr ? netmaskAddr : "None");
   printf("Gateway: %s\r\n\r\n", gatewayAddr ? gatewayAddr : "None");
 
-  /* Open the server on ethernet stack */
   server.open(net);
-
-  /* Bind the HTTP port (TCP 80) to the server */
   server.bind(ip);
-
   server.listen(MAX_CONN);
 
   return 1;
