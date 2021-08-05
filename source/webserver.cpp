@@ -111,12 +111,12 @@ void WebServer::tick() {
         string data = s.substr(len - 11, len);
 
         string temp = data.substr(0, 4);
-        string dewity = data.substr(4, 4); // library bug 🤡
+        string dewity = data.substr(4, 4).substr(1, 2); // wat 🤡
         string humidity = data.substr(8, 9);
         
         Row r = Row();
         r.temperature = temp;
-        r.dewity = dewity.substr(1, 2);
+        r.dewity = dewity;
         r.humidity = humidity;
 
         db->append(r);
