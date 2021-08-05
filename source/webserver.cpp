@@ -14,8 +14,8 @@ EthernetInterface *net;
 TCPSocket server;
 TCPSocket *clientSocket;
 SocketAddress clientAddress;
-char rxBuf[1024] = {0};
-char txBuf[1024] = {0};
+char rx_buffer[1024] = {0};
+char tx_buffer[1024] = {0};
 
 int requests = 0;
 
@@ -80,7 +80,7 @@ void WebServer::tick() {
     clientSocket->getpeername(&clientAddress);
     printf("Client with IP address %s connected.\r\n\r\n",
            clientAddress.get_ip_address());
-    error = clientSocket->recv(rxBuf, sizeof(rxBuf));
+    error = clientSocket->recv(rx_buffer, sizeof(rx_buffer));
 
     switch (error) {
     case 0:
@@ -92,22 +92,22 @@ void WebServer::tick() {
       break;
 
     default:
-      printf("Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rxBuf),
-             strlen(rxBuf), rxBuf);
-      if (rxBuf[0] == 'G' && rxBuf[1] == 'E' && rxBuf[2] == 'T') {
+      printf("Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rx_buffer),
+             strlen(rx_buffer), rx_buffer);
+      if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T') {
         // setup http response header & data
-        sprintf(txBuf,
+        sprintf(tx_buffer,
                 "HTTP/1.1 200 OK\nContent-Length: %d\r\nContent-Type: "
                 "text\r\nConnection: Close\r\n\r\n",
-                strlen(rxBuf));
-        // strcat(txBuf, rxBuf);
+                strlen(rx_buffer));
+        // strcat(tx_buffer, rx_buffer);
 
-        strcpy(txBuf, homepage);
+        strcpy(tx_buffer, homepage);
 
-        clientSocket->send(txBuf, strlen(txBuf));
+        clientSocket->send(tx_buffer, strlen(tx_buffer));
 
         // printf("------------------------------------\r\n");
-        // printf("Sent:\r\n%s\r\n", txBuf);
+        // printf("Sent:\r\n%s\r\n", tx_buffer);
         printf("echo done.\r\n");
       }
       break;

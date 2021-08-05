@@ -1,17 +1,16 @@
 #include "mbed.h"
 #include "webserver.h"
 
-WebServer *server;
-
 int main(void) {
-  server = new WebServer;
-  server->start();
+  WebServer webServer;
+
+  webServer.start();
 
   // listening for http GET request
   while (true) {
-    server->tick();
+    webServer.tick();
   }
 
-  server->getSocket()->close();
+  webServer.getSocket()->close();
   printf("Client socket closed\r\n");
 }
