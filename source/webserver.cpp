@@ -3,6 +3,7 @@
 #include "EthernetInterface.h"
 #include "TCPSocket.h"
 #include "website.h"
+#include <cstring>
 
 #define IP "192.168.1.100"
 #define GATEWAY "192.168.1.1"
@@ -48,9 +49,9 @@ int WebServer::start() {
   const char *netmask_addr = netmask.get_ip_address();
   const char *gateway_addr = gateway.get_ip_address();
 
-  printf("[webserver]: IP address: %s\r\n", ip_addr ? ip_addr : "None");
-  printf("[webserver]: Netmask: %s\r\n", netmask_addr ? netmask_addr : "None");
-  printf("[webserver]: Gateway: %s\r\n\r\n", gateway_addr ? gateway_addr : "None");
+  printf("[webserver]: IP address: %s\n", ip_addr ? ip_addr : "None");
+  printf("[webserver]: Netmask: %s\n", netmask_addr ? netmask_addr : "None");
+  printf("[webserver]: Gateway: %s\n", gateway_addr ? gateway_addr : "None");
 
   server.open(net);
   server.bind(ip);
@@ -60,43 +61,48 @@ int WebServer::start() {
 };
 
 void WebServer::tick() {
-  printf("=========================================\r\n");
+  printf("=========================================\n");
 
   nsapi_error_t error = 0;
 
   client_socket = server.accept(&error);
   requests++;
   if (error != 0) {
-    printf("[webserver]: Connection failed!\r\n");
+    printf("[webserver]: Connection failed!\n");
   } else {
     client_socket->set_timeout(200);
     client_socket->getpeername(&client_address);
-    printf("[webserver]: Client with IP address %s connected.\r\n\r\n",
+    printf("[webserver]: Client with IP address %s connected.\n",
            client_address.get_ip_address());
     error = client_socket->recv(rx_buffer, sizeof(rx_buffer));
 
     switch (error) {
     case 0:
-      printf("[webserver]: Recieved buffer is empty.\r\n");
+      printf("[webserver]: Recieved buffer is empty.\n");
       break;
 
     case -1:
-      printf("[webserver]: Failed to read data from client.\r\n");
+      printf("[webserver]: Failed to read data from client.\n");
       break;
 
     default:
-      printf("[webserver]: Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rx_buffer), strlen(rx_buffer), rx_buffer);
-      if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T') {
+      printf("[webserver]: Recieved Data: %d bytes\n%.*s\n", strlen(rx_buffer), strlen(rx_buffer), rx_buffer);
+      if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T' && rx_buffer[4] == '/' && rx_buffer[5] == ' ') {
         // setup http response header & data
         sprintf(tx_buffer,
-                "HTTP/1.1 200 OK\nContent-Length: %d\r\nContent-Type: "
-                "text\r\nConnection: Close\r\n\r\n",
+                "HTTP/1.1 200 OK\nContent-Length: %d\nContent-Type: "
+                "text\r\nConnection: Close\n",
                 strlen(rx_buffer));
 
         strcpy(tx_buffer, homepage);
-
-        client_socket->send(tx_buffer, strlen(tx_buffer));
+      } else {
+        sprintf(tx_buffer,
+          "HTTP/1.1 404 Not Found\nContent-Length: %d\nContent-Type: "
+          "text\r\nConnection: Close",
+          strlen(rx_buffer));
       }
+
+      client_socket->send(tx_buffer, strlen(tx_buffer));
       break;
     }
   }
