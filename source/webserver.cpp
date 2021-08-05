@@ -12,8 +12,8 @@
 EthernetInterface *net;
 
 TCPSocket server;
-TCPSocket *clientSocket;
-SocketAddress clientAddress;
+TCPSocket *client_socket;
+SocketAddress client_address;
 char rx_buffer[1024] = {0};
 char tx_buffer[1024] = {0};
 
@@ -46,13 +46,13 @@ int WebServer::start() {
 
   ip.set_port(PORT);
 
-  const char *ipAddr = ip.get_ip_address();
-  const char *netmaskAddr = netmask.get_ip_address();
-  const char *gatewayAddr = gateway.get_ip_address();
+  const char *ip_addr = ip.get_ip_address();
+  const char *netmask_addr = netmask.get_ip_address();
+  const char *gateway_addr = gateway.get_ip_address();
 
-  printf("IP address: %s\r\n", ipAddr ? ipAddr : "None");
-  printf("Netmask: %s\r\n", netmaskAddr ? netmaskAddr : "None");
-  printf("Gateway: %s\r\n\r\n", gatewayAddr ? gatewayAddr : "None");
+  printf("IP address: %s\r\n", ip_addr ? ip_addr : "None");
+  printf("Netmask: %s\r\n", netmask_addr ? netmask_addr : "None");
+  printf("Gateway: %s\r\n\r\n", gateway_addr ? gateway_addr : "None");
 
   server.open(net);
   server.bind(ip);
@@ -66,16 +66,16 @@ void WebServer::tick() {
 
   nsapi_error_t error = 0;
 
-  clientSocket = server.accept(&error);
+  client_socket = server.accept(&error);
   requests++;
   if (error != 0) {
     printf("Connection failed!\r\n");
   } else {
-    clientSocket->set_timeout(200);
-    clientSocket->getpeername(&clientAddress);
+    client_socket->set_timeout(200);
+    client_socket->getpeername(&client_address);
     printf("Client with IP address %s connected.\r\n\r\n",
-           clientAddress.get_ip_address());
-    error = clientSocket->recv(rx_buffer, sizeof(rx_buffer));
+           client_address.get_ip_address());
+    error = client_socket->recv(rx_buffer, sizeof(rx_buffer));
 
     switch (error) {
     case 0:
@@ -87,31 +87,25 @@ void WebServer::tick() {
       break;
 
     default:
-      printf("Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rx_buffer),
-             strlen(rx_buffer), rx_buffer);
+      printf("Recieved Data: %d\n\r\n\r%.*s\r\n\n\r", strlen(rx_buffer), strlen(rx_buffer), rx_buffer);
       if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T') {
         // setup http response header & data
         sprintf(tx_buffer,
                 "HTTP/1.1 200 OK\nContent-Length: %d\r\nContent-Type: "
                 "text\r\nConnection: Close\r\n\r\n",
                 strlen(rx_buffer));
-        // strcat(tx_buffer, rx_buffer);
 
         strcpy(tx_buffer, homepage);
 
-        clientSocket->send(tx_buffer, strlen(tx_buffer));
-
-        // printf("------------------------------------\r\n");
-        // printf("Sent:\r\n%s\r\n", tx_buffer);
-        printf("echo done.\r\n");
+        client_socket->send(tx_buffer, strlen(tx_buffer));
       }
       break;
     }
   }
 
-  clientSocket->close();
+  client_socket->close();
 }
 
 TCPSocket* WebServer::getSocket() {
-    return clientSocket;
+    return client_socket;
 }
