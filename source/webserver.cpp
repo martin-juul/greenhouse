@@ -108,20 +108,18 @@ void WebServer::tick() {
         // POST request
         string s = string(rx_buffer);
         int len = s.length();
-        string data = s.substr(len - 10, len);
+        string data = s.substr(len - 11, len);
 
-        string temp = data.substr(0, 3);
-        string humidity = data.substr(5, 7);
-        string dewity = data.substr(8, 10);
+        string temp = data.substr(0, 4);
+        string dewity = data.substr(4, 4); // library bug 🤡
+        string humidity = data.substr(8, 9);
+        
         Row r = Row();
         r.temperature = temp;
+        r.dewity = dewity.substr(1, 2);
         r.humidity = humidity;
-        r.dewity = dewity;
 
         db->append(r);
-
-        printf("\nData: \n");
-        printf("%s\n", data.c_str());
 
         sprintf(
             tx_buffer,

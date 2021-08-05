@@ -18,7 +18,7 @@ Row Database::latest() {
 }
 
 void Database::append(Row r) {
-  printf("%s.%s.%s", r.temperature.c_str(), r.dewity.c_str(), r.humidity.c_str());
+  printf("[database::append]: temp: %s | dew: %s | hum: %s", r.temperature.c_str(), r.dewity.c_str(), r.humidity.c_str());
 
   store.push_back(r);
 }
