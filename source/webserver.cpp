@@ -1,9 +1,10 @@
-#include "mbed.h"
 #include "webserver.h"
 #include "EthernetInterface.h"
 #include "TCPSocket.h"
+#include "mbed.h"
 #include "website.h"
 #include <cstring>
+#include <string>
 
 #define IP "192.168.1.100"
 #define GATEWAY "192.168.1.1"
@@ -19,6 +20,26 @@ char rx_buffer[1024] = {0};
 char tx_buffer[1024] = {0};
 
 int requests = 0;
+
+inline bool is_return(const char &input) {
+  return input == '\n' || input == '\r';
+}
+
+string last_line(const string &input) {
+  if (input.length() == 1)
+    return input;
+  size_t position = input.length() - 2; // last character might be a return
+                                        // character, we can jump over it anyway
+  while ((not is_return(input[position])) and position > 0)
+    position--;
+  // now we are at the \n just before the last line, or at the first character
+  // of the string
+  if (is_return(input[position]))
+    position += 1;
+  // now we are at the beginning of the last line
+
+  return input.substr(position);
+}
 
 int WebServer::start() {
   net = new EthernetInterface;
@@ -86,8 +107,10 @@ void WebServer::tick() {
       break;
 
     default:
-      printf("[webserver]: Recieved Data: %d bytes\n%.*s\n", strlen(rx_buffer), strlen(rx_buffer), rx_buffer);
-      if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T' && rx_buffer[4] == '/' && rx_buffer[5] == ' ') {
+      printf("[webserver]: Recieved Data: %d bytes\n%.*s\n", strlen(rx_buffer),
+             strlen(rx_buffer), rx_buffer);
+      if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T' &&
+          rx_buffer[4] == '/' && rx_buffer[5] == ' ') {
         // setup http response header & data
         sprintf(tx_buffer,
                 "HTTP/1.1 200 OK\nContent-Length: %d\nContent-Type: "
@@ -95,11 +118,24 @@ void WebServer::tick() {
                 strlen(rx_buffer));
 
         strcpy(tx_buffer, homepage);
+      } else if (rx_buffer[0] == 'P' && rx_buffer[1] == 'O' &&
+                 rx_buffer[2] == 'S' && rx_buffer[3] == 'T') {
+        // POST request
+        string s = string(rx_buffer);
+        int len = s.length();
+        string data = s.substr(len - 10, len);
+
+        printf("\nData: \n");
+        printf("%s\n", data.c_str());
+
+        sprintf(
+            tx_buffer,
+            "HTTP/1.1 204 No Content\nContent-Length: 0\nConnection: Close");
       } else {
         sprintf(tx_buffer,
-          "HTTP/1.1 404 Not Found\nContent-Length: %d\nContent-Type: "
-          "text\r\nConnection: Close",
-          strlen(rx_buffer));
+                "HTTP/1.1 404 Not Found\nContent-Length: %d\nContent-Type: "
+                "text\r\nConnection: Close",
+                strlen(rx_buffer));
       }
 
       client_socket->send(tx_buffer, strlen(tx_buffer));
@@ -110,6 +146,4 @@ void WebServer::tick() {
   client_socket->close();
 }
 
-TCPSocket* WebServer::getSocket() {
-    return client_socket;
-}
+TCPSocket *WebServer::getSocket() { return client_socket; }
