@@ -21,26 +21,6 @@ char tx_buffer[1024] = {0};
 
 int requests = 0;
 
-inline bool is_return(const char &input) {
-  return input == '\n' || input == '\r';
-}
-
-string last_line(const string &input) {
-  if (input.length() == 1)
-    return input;
-  size_t position = input.length() - 2; // last character might be a return
-                                        // character, we can jump over it anyway
-  while ((not is_return(input[position])) and position > 0)
-    position--;
-  // now we are at the \n just before the last line, or at the first character
-  // of the string
-  if (is_return(input[position]))
-    position += 1;
-  // now we are at the beginning of the last line
-
-  return input.substr(position);
-}
-
 int WebServer::start() {
   net = new EthernetInterface;
 
