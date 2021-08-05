@@ -108,6 +108,8 @@ void WebServer::tick() {
       break;
     }
   }
+
+  clientSocket->close();
 }
 
 TCPSocket* WebServer::getSocket() {
