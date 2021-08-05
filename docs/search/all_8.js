@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['server_18',['server',['../webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2',1,'webserver.cpp']]],
-  ['start_19',['start',['../class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad',1,'WebServer']]]
+  ['readme_2emd_17',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['requests_18',['requests',['../webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b',1,'webserver.cpp']]],
+  ['rx_5fbuffer_19',['rx_buffer',['../webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec',1,'webserver.cpp']]]
 ];
