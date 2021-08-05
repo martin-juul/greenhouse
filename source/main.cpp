@@ -1,18 +1,22 @@
+#include "database.h"
 #include "mbed.h"
 #include "mbed_wait_api.h"
 #include "webserver.h"
 #include <cstdlib>
 
 Thread thread;
-WebServer webServer;
+Database database;
 
-void webserver_thread() {
+void webserver_thread(WebServer* webServer) {
   while (true) {
-    webServer.tick();
+    webServer->tick();
   }
 }
 
 int main(void) {
+  Database db;
+  WebServer webServer = WebServer(&database);
+
   printf("[webserver]: starting\n");
   
   int status = webServer.start();
@@ -24,7 +28,7 @@ int main(void) {
   printf("[webserver]: started successfully\n");
 
   printf("[host]: spawing webserver_thread\n");
-  thread.start(webserver_thread);
+  thread.start(callback(webserver_thread, &webServer));
 
   // listening for http GET request
   while (true) {

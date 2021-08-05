@@ -1,6 +1,5 @@
 #include "webserver.h"
 #include "EthernetInterface.h"
-#include "TCPSocket.h"
 #include "mbed.h"
 #include "website.h"
 #include <cstring>
@@ -11,6 +10,8 @@
 #define NETMASK "255.255.255.0"
 #define PORT 80
 
+Database *db;
+
 EthernetInterface *net;
 
 TCPSocket server;
@@ -20,6 +21,10 @@ char rx_buffer[1024] = {0};
 char tx_buffer[1024] = {0};
 
 int requests = 0;
+
+WebServer::WebServer(Database *database) {
+  db = database;
+}
 
 int WebServer::start() {
   net = new EthernetInterface;
@@ -104,6 +109,16 @@ void WebServer::tick() {
         string s = string(rx_buffer);
         int len = s.length();
         string data = s.substr(len - 10, len);
+
+        string temp = data.substr(0, 3);
+        string humidity = data.substr(5, 7);
+        string dewity = data.substr(8, 10);
+        Row r = Row();
+        r.temperature = temp;
+        r.humidity = humidity;
+        r.dewity = dewity;
+
+        db->append(r);
 
         printf("\nData: \n");
         printf("%s\n", data.c_str());

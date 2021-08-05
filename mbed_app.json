@@ -1,11 +1,7 @@
 {
     "config": {
-        "hostname": {
-            "help": "The demo will try to connect to this web address on port 80 (or port 443 when using tls).",
-            "value": "\"ifconfig.io\""
-        },
         "use-tls-socket": {
-            "value": false
+            "value": true
         }
     },
     "target_overrides": {

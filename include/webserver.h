@@ -1,4 +1,5 @@
 #pragma once
+#include "database.h"
 #include "TCPSocket.h"
 
 static const int MAX_CONN = 5;
@@ -60,6 +61,7 @@ static const char private_key[] = \
 
 class WebServer {
 public:
+  WebServer(Database *database);
   int start();
   void tick();
   TCPSocket *getSocket();
