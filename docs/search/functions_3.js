@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tick_38',['tick',['../class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7',1,'WebServer']]]
+  ['getsocket_56',['getSocket',['../class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224',1,'WebServer']]]
 ];

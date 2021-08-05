@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['thread_20',['thread',['../main_8cpp.html#ac99b75d10f465c1160242dea4544069a',1,'main.cpp']]],
-  ['tick_21',['tick',['../class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7',1,'WebServer']]],
-  ['tx_5fbuffer_22',['tx_buffer',['../webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829',1,'webserver.cpp']]]
+  ['net_22',['net',['../webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a',1,'webserver.cpp']]],
+  ['netmask_23',['NETMASK',['../webserver_8cpp.html#ae656bfb3c008ca5a1f0ad19bd6c749e8',1,'webserver.cpp']]]
 ];

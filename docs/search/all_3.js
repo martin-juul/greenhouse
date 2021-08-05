@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ip_7',['IP',['../webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'webserver.cpp']]]
+  ['flush_11',['flush',['../class_database.html#ac61949bdd17bdf29ddc9e0c383e9e2e8',1,'Database']]]
 ];

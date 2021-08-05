@@ -70,82 +70,88 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="webserver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;TCPSocket.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">    4</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a> = 5;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">    6</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">cert</a>[] = \</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="stringliteral">&quot;-----BEGIN CERTIFICATE-----\n&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="stringliteral">&quot;MIID3zCCAsegAwIBAgIUMftUP+WG7Y3BBMd+HmqYMgpmDM8wDQYJKoZIhvcNAQEL\n&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="stringliteral">&quot;BQAwfzELMAkGA1UEBhMCREsxEzARBgNVBAgMClN5ZGRhbm1hcmsxDzANBgNVBAcM\n&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="stringliteral">&quot;Bk9kZW5zZTETMBEGA1UECgwKR3JlZW5ob3VzZTEWMBQGA1UEAwwNMTkyLjE2OC4x\n&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="stringliteral">&quot;LjEwMDEdMBsGCSqGSIb3DQEJARYObG9jYWxob3N0QHJvb3QwHhcNMjEwODA1MDgz\n&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="stringliteral">&quot;MjM0WhcNMjEwOTA0MDgzMjM0WjB/MQswCQYDVQQGEwJESzETMBEGA1UECAwKU3lk\n&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="stringliteral">&quot;ZGFubWFyazEPMA0GA1UEBwwGT2RlbnNlMRMwEQYDVQQKDApHcmVlbmhvdXNlMRYw\n&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="stringliteral">&quot;FAYDVQQDDA0xOTIuMTY4LjEuMTAwMR0wGwYJKoZIhvcNAQkBFg5sb2NhbGhvc3RA\n&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="stringliteral">&quot;cm9vdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJJf1sS7HnUY/MZ6\n&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="stringliteral">&quot;t8O0BJ8G1mpMbqTK5ZFxTCsu7ReujVi+ppiBufPYRf+dIFslpS0YOVJ+4Ep/vTaK\n&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="stringliteral">&quot;62F/tbfc62AcJ2LV+NGGekg7advYvStsE08XQntTf6eKF0djzkEq6jePvibuVcvX\n&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="stringliteral">&quot;cWSKjBe0wP3K94Nm9/Kb7zraVlAGhUgm5lgZG62g9Uk5TNaFTjN6SDXDauiKMHND\n&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="stringliteral">&quot;b8V3k9OKON51OshMpl7CIZUzXoITW6k1kfj06AKKv2i8A3Mf08ImGXllRH0Mioer\n&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="stringliteral">&quot;VkMtgGaFC9E+vj1Xhafhsjm21bIbYX1UXR3sAtSiu9QGqAIGpgTET/F4F8u8xmQs\n&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="stringliteral">&quot;vH3uCsECAwEAAaNTMFEwHQYDVR0OBBYEFNwuKckENZtjlw+PA4b2lCOEbfhPMB8G\n&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="stringliteral">&quot;A1UdIwQYMBaAFNwuKckENZtjlw+PA4b2lCOEbfhPMA8GA1UdEwEB/wQFMAMBAf8w\n&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="stringliteral">&quot;DQYJKoZIhvcNAQELBQADggEBACMdgHCXeZ/Pp5a+Oq8p9SMetCNTbV5B+TiqUD8w\n&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="stringliteral">&quot;d8T9jVqCw5lQ20gCWg4Om7rsZMs2XN5OrWj7ExiY1C3bSMCjiTdyIbjTTysAoodS\n&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="stringliteral">&quot;wlX0r/O9RtJeNrlSMFFvxlJqmiRlAQhE4Sa5Ql+2E2kcXEf7CCxW+ksTpdFgKonh\n&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="stringliteral">&quot;vigGj9KHiE6Bko6Gu2VS8PEWshT94sOQYxLqQUWSvSztyhDDlNqi4ZCEgek1+0K5\n&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="stringliteral">&quot;9RkovM3Wib6U1Ulbr6edPE0saPGCy2icA8OE5pQXHrqjLH58OtZcydkia/KtVdMv\n&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="stringliteral">&quot;/MWZJ2H9oTi1ftEIauqM0rqrPKeiYDzNuAsecYwRtI4K22o=\n&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="stringliteral">&quot;-----END CERTIFICATE-----&quot;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">   31</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">private_key</a>[] = \</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="stringliteral">&quot;-----BEGIN PRIVATE KEY-----\n&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="stringliteral">&quot;MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCSX9bEux51GPzG\n&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="stringliteral">&quot;erfDtASfBtZqTG6kyuWRcUwrLu0Xro1YvqaYgbnz2EX/nSBbJaUtGDlSfuBKf702\n&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="stringliteral">&quot;iuthf7W33OtgHCdi1fjRhnpIO2nb2L0rbBNPF0J7U3+nihdHY85BKuo3j74m7lXL\n&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="stringliteral">&quot;13FkiowXtMD9yveDZvfym+862lZQBoVIJuZYGRutoPVJOUzWhU4zekg1w2roijBz\n&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="stringliteral">&quot;Q2/Fd5PTijjedTrITKZewiGVM16CE1upNZH49OgCir9ovANzH9PCJhl5ZUR9DIqH\n&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="stringliteral">&quot;q1ZDLYBmhQvRPr49V4Wn4bI5ttWyG2F9VF0d7ALUorvUBqgCBqYExE/xeBfLvMZk\n&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="stringliteral">&quot;LLx97grBAgMBAAECggEAbfgM7c67KjR0rFVEPIbBtgw4CLKVqb85zBR3qjXeMJ2W\n&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="stringliteral">&quot;WecaWJeV8go5RLpytafJueBqKH1j2vSvXgvunViKWLFkMNfWC15ASoIi2qOwe1gR\n&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="stringliteral">&quot;f076DsCl1Ou9i0ynAp6MNc+dGdMnhC4pTTT2Xxfr+l91YvcbD6DLhXz7tZaVpBav\n&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="stringliteral">&quot;K66rl15LwXEHV2JjhnCTgMyvWs4QgBBRUrKRjtWPXjFAXrwcVu+JKwlRASPi35Xo\n&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="stringliteral">&quot;HWZZpBx0/1B/X5dIjEo6A7bl+j7YzAa3yCV/qswAp685dVzAO+Ds3K925aP4M0Cw\n&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="stringliteral">&quot;Y7G0u79O7GhHG4RkJWk1QPhpPsKUO6zlY9e8lCtbZQKBgQDB5Q77AuRT7pvNaIZP\n&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="stringliteral">&quot;7xcl1Ewufe8Gs6oG0qREnMxbf3T3Ui3w2R1cSdtkvGYSLT78T7/tXj+YYP1OdIOy\n&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="stringliteral">&quot;21uATdBoTTUSKrel+d9mVy87FGc5U58PrKyTO80+RJJMCeowZhnuO+RK0GNwhVPz\n&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="stringliteral">&quot;IZKSF+tbmYPbFJoZIps3TKveAwKBgQDBQjawA2p5JNWz14S+1HkU8fI1XEWy+IB3\n&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="stringliteral">&quot;eiMEcppU3nHXzxu6c/oAM4M02xBxQTAHLBZxXMdDieCYjpHGIvcAnRZu6/4vEpsV\n&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="stringliteral">&quot;vDRZ8f64hN4ueXPqeqMnjRQTWRsgs7GUuptPbK+cy1g3ll5QBV3uLVIxDNm4dq20\n&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="stringliteral">&quot;89fC3hRq6wKBgGzdrJyZUhQiLA6X+pnU951A5wlPoi6UIAo2qQ7xLvjMxqK63JqX\n&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="stringliteral">&quot;fRm9Slb0RSc9iljmei/PtEtdYbx0RSHecjDHABYgC4VIwNaLRrjSiO1WFmMkpXGK\n&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="stringliteral">&quot;lVcRw7qLi8zv4DMOkM6niBXNjZe29JzVo9MtZPOIbXVLyv4D5TyWawV7AoGAadcN\n&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="stringliteral">&quot;hFAam8Ykk53QwYIz3dizwa2LLn0SPlzRmLn688fvqTVwBilGHZ4YmXXwB1agKw1m\n&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="stringliteral">&quot;LSeWqdJ1ApfyFgVIKTne81ijmLwj2z97nFcAHaYG2IUDisMnX53QBNikFsDS3JVm\n&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="stringliteral">&quot;QZVQiBqFccwUUtbdnneLr/lNs8yrTZLN85cUr4kCgYAWpsOvptW9hLcbIFrI1lXH\n&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="stringliteral">&quot;K1bZh/6ojZ9T7RtxuM2uK0+XuCYB3j+o3NkMeHG8snzrNX0WwWWZVVccYZrYyjuA\n&quot;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="stringliteral">&quot;SbgLd+Ou7IY9Xh5cuDJQkc7Du86QlT6MqfGJgy85M5JlB2rmiW81hl0z1qQeCoke\n&quot;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="stringliteral">&quot;YjR9+Dyk0G5qcPmZK6Gn2Q==\n&quot;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="stringliteral">&quot;-----END PRIVATE KEY-----&quot;</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_web_server.html">   61</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_web_server.html">WebServer</a> {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">tick</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  TCPSocket *<a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">getSocket</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="ttc" id="aclass_web_server_html"><div class="ttname"><a href="class_web_server.html">WebServer</a></div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00061">webserver.h:61</a></div></div>
-<div class="ttc" id="aclass_web_server_html_a5a0b6415cbf2e24be77605b6557a08ad"><div class="ttname"><a href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a></div><div class="ttdeci">int start()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00024">webserver.cpp:24</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00064">webserver.cpp:64</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00129">webserver.cpp:129</a></div></div>
-<div class="ttc" id="awebserver_8h_html_a5e78aaff1b2384e77c72a6cc825e2d4c"><div class="ttname"><a href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a></div><div class="ttdeci">static const int MAX_CONN</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00004">webserver.h:4</a></div></div>
-<div class="ttc" id="awebserver_8h_html_aa8698b8c55221a0175767b03770a42b6"><div class="ttname"><a href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">private_key</a></div><div class="ttdeci">static const char private_key[]</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00031">webserver.h:31</a></div></div>
-<div class="ttc" id="awebserver_8h_html_af5f4558c0d2bb5827f079489adc4e000"><div class="ttname"><a href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">cert</a></div><div class="ttdeci">static const char cert[]</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00006">webserver.h:6</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="database_8h.html">database.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;TCPSocket.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">    5</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a> = 5;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">    7</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">cert</a>[] = \</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="stringliteral">&quot;-----BEGIN CERTIFICATE-----\n&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="stringliteral">&quot;MIID3zCCAsegAwIBAgIUMftUP+WG7Y3BBMd+HmqYMgpmDM8wDQYJKoZIhvcNAQEL\n&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="stringliteral">&quot;BQAwfzELMAkGA1UEBhMCREsxEzARBgNVBAgMClN5ZGRhbm1hcmsxDzANBgNVBAcM\n&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="stringliteral">&quot;Bk9kZW5zZTETMBEGA1UECgwKR3JlZW5ob3VzZTEWMBQGA1UEAwwNMTkyLjE2OC4x\n&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="stringliteral">&quot;LjEwMDEdMBsGCSqGSIb3DQEJARYObG9jYWxob3N0QHJvb3QwHhcNMjEwODA1MDgz\n&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="stringliteral">&quot;MjM0WhcNMjEwOTA0MDgzMjM0WjB/MQswCQYDVQQGEwJESzETMBEGA1UECAwKU3lk\n&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="stringliteral">&quot;ZGFubWFyazEPMA0GA1UEBwwGT2RlbnNlMRMwEQYDVQQKDApHcmVlbmhvdXNlMRYw\n&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="stringliteral">&quot;FAYDVQQDDA0xOTIuMTY4LjEuMTAwMR0wGwYJKoZIhvcNAQkBFg5sb2NhbGhvc3RA\n&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="stringliteral">&quot;cm9vdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJJf1sS7HnUY/MZ6\n&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="stringliteral">&quot;t8O0BJ8G1mpMbqTK5ZFxTCsu7ReujVi+ppiBufPYRf+dIFslpS0YOVJ+4Ep/vTaK\n&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="stringliteral">&quot;62F/tbfc62AcJ2LV+NGGekg7advYvStsE08XQntTf6eKF0djzkEq6jePvibuVcvX\n&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="stringliteral">&quot;cWSKjBe0wP3K94Nm9/Kb7zraVlAGhUgm5lgZG62g9Uk5TNaFTjN6SDXDauiKMHND\n&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="stringliteral">&quot;b8V3k9OKON51OshMpl7CIZUzXoITW6k1kfj06AKKv2i8A3Mf08ImGXllRH0Mioer\n&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="stringliteral">&quot;VkMtgGaFC9E+vj1Xhafhsjm21bIbYX1UXR3sAtSiu9QGqAIGpgTET/F4F8u8xmQs\n&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="stringliteral">&quot;vH3uCsECAwEAAaNTMFEwHQYDVR0OBBYEFNwuKckENZtjlw+PA4b2lCOEbfhPMB8G\n&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="stringliteral">&quot;A1UdIwQYMBaAFNwuKckENZtjlw+PA4b2lCOEbfhPMA8GA1UdEwEB/wQFMAMBAf8w\n&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="stringliteral">&quot;DQYJKoZIhvcNAQELBQADggEBACMdgHCXeZ/Pp5a+Oq8p9SMetCNTbV5B+TiqUD8w\n&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="stringliteral">&quot;d8T9jVqCw5lQ20gCWg4Om7rsZMs2XN5OrWj7ExiY1C3bSMCjiTdyIbjTTysAoodS\n&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="stringliteral">&quot;wlX0r/O9RtJeNrlSMFFvxlJqmiRlAQhE4Sa5Ql+2E2kcXEf7CCxW+ksTpdFgKonh\n&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="stringliteral">&quot;vigGj9KHiE6Bko6Gu2VS8PEWshT94sOQYxLqQUWSvSztyhDDlNqi4ZCEgek1+0K5\n&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="stringliteral">&quot;9RkovM3Wib6U1Ulbr6edPE0saPGCy2icA8OE5pQXHrqjLH58OtZcydkia/KtVdMv\n&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="stringliteral">&quot;/MWZJ2H9oTi1ftEIauqM0rqrPKeiYDzNuAsecYwRtI4K22o=\n&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="stringliteral">&quot;-----END CERTIFICATE-----&quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">   32</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">private_key</a>[] = \</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="stringliteral">&quot;-----BEGIN PRIVATE KEY-----\n&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="stringliteral">&quot;MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCSX9bEux51GPzG\n&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="stringliteral">&quot;erfDtASfBtZqTG6kyuWRcUwrLu0Xro1YvqaYgbnz2EX/nSBbJaUtGDlSfuBKf702\n&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="stringliteral">&quot;iuthf7W33OtgHCdi1fjRhnpIO2nb2L0rbBNPF0J7U3+nihdHY85BKuo3j74m7lXL\n&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="stringliteral">&quot;13FkiowXtMD9yveDZvfym+862lZQBoVIJuZYGRutoPVJOUzWhU4zekg1w2roijBz\n&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="stringliteral">&quot;Q2/Fd5PTijjedTrITKZewiGVM16CE1upNZH49OgCir9ovANzH9PCJhl5ZUR9DIqH\n&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="stringliteral">&quot;q1ZDLYBmhQvRPr49V4Wn4bI5ttWyG2F9VF0d7ALUorvUBqgCBqYExE/xeBfLvMZk\n&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="stringliteral">&quot;LLx97grBAgMBAAECggEAbfgM7c67KjR0rFVEPIbBtgw4CLKVqb85zBR3qjXeMJ2W\n&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="stringliteral">&quot;WecaWJeV8go5RLpytafJueBqKH1j2vSvXgvunViKWLFkMNfWC15ASoIi2qOwe1gR\n&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="stringliteral">&quot;f076DsCl1Ou9i0ynAp6MNc+dGdMnhC4pTTT2Xxfr+l91YvcbD6DLhXz7tZaVpBav\n&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="stringliteral">&quot;K66rl15LwXEHV2JjhnCTgMyvWs4QgBBRUrKRjtWPXjFAXrwcVu+JKwlRASPi35Xo\n&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="stringliteral">&quot;HWZZpBx0/1B/X5dIjEo6A7bl+j7YzAa3yCV/qswAp685dVzAO+Ds3K925aP4M0Cw\n&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="stringliteral">&quot;Y7G0u79O7GhHG4RkJWk1QPhpPsKUO6zlY9e8lCtbZQKBgQDB5Q77AuRT7pvNaIZP\n&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="stringliteral">&quot;7xcl1Ewufe8Gs6oG0qREnMxbf3T3Ui3w2R1cSdtkvGYSLT78T7/tXj+YYP1OdIOy\n&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="stringliteral">&quot;21uATdBoTTUSKrel+d9mVy87FGc5U58PrKyTO80+RJJMCeowZhnuO+RK0GNwhVPz\n&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="stringliteral">&quot;IZKSF+tbmYPbFJoZIps3TKveAwKBgQDBQjawA2p5JNWz14S+1HkU8fI1XEWy+IB3\n&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="stringliteral">&quot;eiMEcppU3nHXzxu6c/oAM4M02xBxQTAHLBZxXMdDieCYjpHGIvcAnRZu6/4vEpsV\n&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="stringliteral">&quot;vDRZ8f64hN4ueXPqeqMnjRQTWRsgs7GUuptPbK+cy1g3ll5QBV3uLVIxDNm4dq20\n&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="stringliteral">&quot;89fC3hRq6wKBgGzdrJyZUhQiLA6X+pnU951A5wlPoi6UIAo2qQ7xLvjMxqK63JqX\n&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="stringliteral">&quot;fRm9Slb0RSc9iljmei/PtEtdYbx0RSHecjDHABYgC4VIwNaLRrjSiO1WFmMkpXGK\n&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="stringliteral">&quot;lVcRw7qLi8zv4DMOkM6niBXNjZe29JzVo9MtZPOIbXVLyv4D5TyWawV7AoGAadcN\n&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="stringliteral">&quot;hFAam8Ykk53QwYIz3dizwa2LLn0SPlzRmLn688fvqTVwBilGHZ4YmXXwB1agKw1m\n&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="stringliteral">&quot;LSeWqdJ1ApfyFgVIKTne81ijmLwj2z97nFcAHaYG2IUDisMnX53QBNikFsDS3JVm\n&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="stringliteral">&quot;QZVQiBqFccwUUtbdnneLr/lNs8yrTZLN85cUr4kCgYAWpsOvptW9hLcbIFrI1lXH\n&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="stringliteral">&quot;K1bZh/6ojZ9T7RtxuM2uK0+XuCYB3j+o3NkMeHG8snzrNX0WwWWZVVccYZrYyjuA\n&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="stringliteral">&quot;SbgLd+Ou7IY9Xh5cuDJQkc7Du86QlT6MqfGJgy85M5JlB2rmiW81hl0z1qQeCoke\n&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="stringliteral">&quot;YjR9+Dyk0G5qcPmZK6Gn2Q==\n&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="stringliteral">&quot;-----END PRIVATE KEY-----&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_web_server.html">   62</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_web_server.html">WebServer</a> {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="class_web_server.html#a69620a99c27a863fbe0a1ecc86f31ae3">WebServer</a>(<a class="code" href="class_database.html">Database</a> *<a class="code" href="main_8cpp.html#a781c289826d0041d9a1e4d7f746b20a2">database</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">tick</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  TCPSocket *<a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">getSocket</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="ttc" id="aclass_database_html"><div class="ttname"><a href="class_database.html">Database</a></div><div class="ttdef"><b>Definition:</b> <a href="database_8h_source.html#l00011">database.h:11</a></div></div>
+<div class="ttc" id="aclass_web_server_html"><div class="ttname"><a href="class_web_server.html">WebServer</a></div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00062">webserver.h:62</a></div></div>
+<div class="ttc" id="aclass_web_server_html_a5a0b6415cbf2e24be77605b6557a08ad"><div class="ttname"><a href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a></div><div class="ttdeci">int start()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00029">webserver.cpp:29</a></div></div>
+<div class="ttc" id="aclass_web_server_html_a69620a99c27a863fbe0a1ecc86f31ae3"><div class="ttname"><a href="class_web_server.html#a69620a99c27a863fbe0a1ecc86f31ae3">WebServer::WebServer</a></div><div class="ttdeci">WebServer(Database *database)</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00025">webserver.cpp:25</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00069">webserver.cpp:69</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00144">webserver.cpp:144</a></div></div>
+<div class="ttc" id="adatabase_8h_html"><div class="ttname"><a href="database_8h.html">database.h</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a781c289826d0041d9a1e4d7f746b20a2"><div class="ttname"><a href="main_8cpp.html#a781c289826d0041d9a1e4d7f746b20a2">database</a></div><div class="ttdeci">Database database</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00008">main.cpp:8</a></div></div>
+<div class="ttc" id="awebserver_8h_html_a5e78aaff1b2384e77c72a6cc825e2d4c"><div class="ttname"><a href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a></div><div class="ttdeci">static const int MAX_CONN</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00005">webserver.h:5</a></div></div>
+<div class="ttc" id="awebserver_8h_html_aa8698b8c55221a0175767b03770a42b6"><div class="ttname"><a href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">private_key</a></div><div class="ttdeci">static const char private_key[]</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00032">webserver.h:32</a></div></div>
+<div class="ttc" id="awebserver_8h_html_af5f4558c0d2bb5827f079489adc4e000"><div class="ttname"><a href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">cert</a></div><div class="ttdeci">static const char cert[]</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00007">webserver.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 5 2021 12:26:00 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 5 2021 12:54:50 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

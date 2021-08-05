@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['port_13',['PORT',['../webserver_8cpp.html#a614217d263be1fb1a5f76e2ff7be19a2',1,'webserver.cpp']]],
-  ['private_5fkey_14',['private_key',['../webserver_8h.html#aa8698b8c55221a0175767b03770a42b6',1,'webserver.h']]]
+  ['ip_17',['IP',['../webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'webserver.cpp']]]
 ];
