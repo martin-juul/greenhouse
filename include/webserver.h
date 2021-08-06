@@ -1,4 +1,5 @@
 #pragma once
+#include "TCPSocket.h"
 #include "socket.h"
 #include "database.h"
 #include "TLSSocket.h"
@@ -79,5 +80,5 @@ public:
    *
    * @retval Socket
    */
-  Socket *getSocket();
+  TCPSocket *getSocket();
 };

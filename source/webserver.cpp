@@ -1,33 +1,28 @@
 #include "webserver.h"
 #include "EthernetInterface.h"
-#include "TLSSocket.h"
 #include "mbed.h"
 #include "website.h"
-#include <cstdio>
 #include <cstring>
 #include <string>
 
 #define IP "192.168.1.100"
 #define GATEWAY "192.168.1.1"
 #define NETMASK "255.255.255.0"
-#define PORT 443
-// 0 puts the socket in non-blocking mode
-#define CLIENT_SOCKET_TIMEOUT 0
+#define PORT 80
 
 Database *db;
 
 EthernetInterface *net;
-TLSSocket server;
-Socket *client_socket;
+
+TCPSocket server;
+TCPSocket *client_socket;
 SocketAddress client_address;
 char rx_buffer[1024] = {0};
 char tx_buffer[1024] = {0};
 
 int requests = 0;
 
-WebServer::WebServer(Database *database) {
-  db = database;
-}
+WebServer::WebServer(Database *database) { db = database; }
 
 int WebServer::start() {
   net = new EthernetInterface;
@@ -43,6 +38,7 @@ int WebServer::start() {
     return r;
   }
 
+  // Show the network address
   SocketAddress ip;
   SocketAddress netmask;
   SocketAddress gateway;
@@ -61,14 +57,36 @@ int WebServer::start() {
   printf("[webserver]: Netmask: %s\n", netmask_addr ? netmask_addr : "None");
   printf("[webserver]: Gateway: %s\n", gateway_addr ? gateway_addr : "None");
 
-  server.set_root_ca_cert(cert);
-  server.set_hostname(IP);
   server.open(net);
   server.bind(ip);
   server.listen(MAX_CONN);
 
   return 1;
 };
+
+void http_ok() {
+  sprintf(tx_buffer,
+          "HTTP/1.1 200 OK\n"
+          "Content-Length: %d\n"
+          "Content-Type: text\n"
+          "Connection: Close\n",
+          strlen(rx_buffer));
+}
+
+void http_no_content() {
+  sprintf(tx_buffer, "HTTP/1.1 204 No Content\n"
+                     "Connection: Close\n");
+}
+
+void http_not_found() {
+  sprintf(tx_buffer, "HTTP/1.1 404 Not Found\n"
+                     "Connection: Close\n");
+}
+
+void http_internal_server_error() {
+  sprintf(tx_buffer, "HTTP/1.1 500 Internal Server Error\n"
+                     "Connection: Close\n");
+}
 
 void WebServer::tick() {
   printf("=========================================\n");
@@ -80,7 +98,7 @@ void WebServer::tick() {
   if (error != 0) {
     printf("[webserver]: Connection failed!\n");
   } else {
-    client_socket->set_timeout(CLIENT_SOCKET_TIMEOUT);
+    client_socket->set_timeout(0);
     client_socket->getpeername(&client_address);
     printf("[webserver]: Client with IP address %s connected.\n",
            client_address.get_ip_address());
@@ -89,10 +107,12 @@ void WebServer::tick() {
     switch (error) {
     case 0:
       printf("[webserver]: Recieved buffer is empty.\n");
+      http_internal_server_error();
       break;
 
     case -1:
       printf("[webserver]: Failed to read data from client.\n");
+      http_internal_server_error();
       break;
 
     default:
@@ -101,10 +121,7 @@ void WebServer::tick() {
       if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T' &&
           rx_buffer[4] == '/' && rx_buffer[5] == ' ') {
         // setup http response header & data
-        sprintf(tx_buffer,
-                "HTTP/1.1 200 OK\nContent-Length: %d\nContent-Type: "
-                "text\r\nConnection: Close\n",
-                strlen(rx_buffer));
+        http_ok();
 
         strcpy(tx_buffer, homepage);
       } else if (rx_buffer[0] == 'P' && rx_buffer[1] == 'O' &&
@@ -115,13 +132,9 @@ void WebServer::tick() {
         string data = s.substr(len - 11, len);
 
         string temp = data.substr(0, 4);
-
-        // For some reason we have to parse the second field like this
-        // the substr indices doesn't match, nor make any sense.
-        // I'm assuming it's due to the first call not being immutable......
         string dewity = data.substr(4, 4).substr(1, 2); // wat 🤡
         string humidity = data.substr(8, 9);
-        
+
         Row r = Row();
         r.temperature = temp;
         r.dewity = dewity;
@@ -129,14 +142,9 @@ void WebServer::tick() {
 
         db->append(r);
 
-        sprintf(
-            tx_buffer,
-            "HTTP/1.1 204 No Content\nContent-Length: 0\nConnection: Close");
+        http_no_content();
       } else {
-        sprintf(tx_buffer,
-                "HTTP/1.1 404 Not Found\nContent-Length: %d\nContent-Type: "
-                "text\r\nConnection: Close",
-                strlen(rx_buffer));
+        http_not_found();
       }
 
       client_socket->send(tx_buffer, strlen(tx_buffer));
@@ -147,4 +155,4 @@ void WebServer::tick() {
   client_socket->close();
 }
 
-Socket *WebServer::getSocket() { return client_socket; }
+TCPSocket *WebServer::getSocket() { return client_socket; }
