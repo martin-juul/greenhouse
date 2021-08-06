@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gateway_81',['GATEWAY',['../webserver_8cpp.html#a861181f1d81b4ccb482b33c7bffad5d1',1,'webserver.cpp']]]
+  ['client_5fsocket_5ftimeout_82',['CLIENT_SOCKET_TIMEOUT',['../webserver_8cpp.html#ae0bf88e87d04681a088ecf2560d84fc0',1,'webserver.cpp']]]
 ];

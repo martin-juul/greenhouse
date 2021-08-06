@@ -1,21 +1,24 @@
 #include "webserver.h"
 #include "EthernetInterface.h"
+#include "TLSSocket.h"
 #include "mbed.h"
 #include "website.h"
+#include <cstdio>
 #include <cstring>
 #include <string>
 
 #define IP "192.168.1.100"
 #define GATEWAY "192.168.1.1"
 #define NETMASK "255.255.255.0"
-#define PORT 80
+#define PORT 443
+#define CLIENT_SOCKET_TIMEOUT 200
 
 Database *db;
 
 EthernetInterface *net;
 
-TCPSocket server;
-TCPSocket *client_socket;
+TLSSocket server;
+Socket *client_socket;
 SocketAddress client_address;
 char rx_buffer[1024] = {0};
 char tx_buffer[1024] = {0};
@@ -59,6 +62,8 @@ int WebServer::start() {
   printf("[webserver]: Netmask: %s\n", netmask_addr ? netmask_addr : "None");
   printf("[webserver]: Gateway: %s\n", gateway_addr ? gateway_addr : "None");
 
+  server.set_root_ca_cert(cert);
+  server.set_hostname(IP);
   server.open(net);
   server.bind(ip);
   server.listen(MAX_CONN);
@@ -76,7 +81,7 @@ void WebServer::tick() {
   if (error != 0) {
     printf("[webserver]: Connection failed!\n");
   } else {
-    client_socket->set_timeout(200);
+    client_socket->set_timeout(CLIENT_SOCKET_TIMEOUT);
     client_socket->getpeername(&client_address);
     printf("[webserver]: Client with IP address %s connected.\n",
            client_address.get_ip_address());
@@ -143,4 +148,4 @@ void WebServer::tick() {
   client_socket->close();
 }
 
-TCPSocket *WebServer::getSocket() { return client_socket; }
+Socket *WebServer::getSocket() { return client_socket; }

@@ -1,6 +1,7 @@
 #pragma once
+#include "socket.h"
 #include "database.h"
-#include "TCPSocket.h"
+#include "TLSSocket.h"
 
 static const int MAX_CONN = 5;
 
@@ -62,7 +63,21 @@ static const char private_key[] = \
 class WebServer {
 public:
   WebServer(Database *database);
+  /** Starts the webserver
+   *
+   * @retval void
+   */
   int start();
+  /** One "revolution" of parsing incoming/outgoing connections
+   *
+   * @retval void
+   */
   void tick();
-  TCPSocket *getSocket();
+  /** Get the underlying socket.
+   *
+   * Use this socket to close the server.
+   *
+   * @retval Socket
+   */
+  Socket *getSocket();
 };

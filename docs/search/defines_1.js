@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ip_82',['IP',['../webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'webserver.cpp']]]
+  ['gateway_83',['GATEWAY',['../webserver_8cpp.html#a861181f1d81b4ccb482b33c7bffad5d1',1,'webserver.cpp']]]
 ];
