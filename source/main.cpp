@@ -4,10 +4,10 @@
 #include "webserver.h"
 #include <cstdlib>
 
-Thread thread;
+Thread thread_web_server;
 Database database;
 
-void webserver_thread(WebServer* webServer) {
+void webserver_task(WebServer* webServer) {
   while (true) {
     webServer->tick();
   }
@@ -28,7 +28,7 @@ int main(void) {
   printf("[webserver]: started successfully\n");
 
   printf("[host]: spawing webserver_thread\n");
-  thread.start(callback(webserver_thread, &webServer));
+  thread_web_server.start(callback(webserver_task, &webServer));
 
   // listening for http GET request
   while (true) {
