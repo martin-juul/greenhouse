@@ -1,4 +1,8 @@
 <map id="WebServer::tick" name="WebServer::tick">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,121,32"/>
-<area shape="rect" id="node2" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="169,5,300,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,123,121,149"/>
+<area shape="rect" id="node2" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="174,5,305,32"/>
+<area shape="rect" id="node3" href="$webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="169,57,309,98"/>
+<area shape="rect" id="node4" href="$webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="181,123,298,149"/>
+<area shape="rect" id="node5" href="$webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="184,173,295,200"/>
+<area shape="rect" id="node6" href="$webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="207,224,272,251"/>
 </map>

@@ -1,8 +1,12 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,56,83"/>
-<area shape="rect" id="node2" href="$class_web_server.html#a1390cc702c41d4ad100fe12d32db0eeb" title=" " alt="" coords="104,5,259,32"/>
-<area shape="rect" id="node3" href="$class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad" title=" " alt="" coords="121,56,242,83"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a8a42d1190b988b5cac65566ab8a22a8a" title=" " alt="" coords="117,107,246,133"/>
-<area shape="rect" id="node5" href="$class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="307,107,423,133"/>
-<area shape="rect" id="node6" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="471,107,601,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,72,56,99"/>
+<area shape="rect" id="node2" href="$class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224" title=" " alt="" coords="104,21,259,48"/>
+<area shape="rect" id="node3" href="$class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad" title=" " alt="" coords="121,72,242,99"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#aece73e8a477568b8adc56f40046e6b98" title=" " alt="" coords="123,123,239,149"/>
+<area shape="rect" id="node5" href="$class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="307,123,423,149"/>
+<area shape="rect" id="node6" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="475,5,606,32"/>
+<area shape="rect" id="node7" href="$webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="471,57,611,98"/>
+<area shape="rect" id="node8" href="$webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="482,123,599,149"/>
+<area shape="rect" id="node9" href="$webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="485,173,596,200"/>
+<area shape="rect" id="node10" href="$webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="508,224,573,251"/>
 </map>

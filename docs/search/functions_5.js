@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_59',['main',['../main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.cpp']]]
+  ['latest_65',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]]
 ];
