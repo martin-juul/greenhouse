@@ -11,12 +11,12 @@
 #define GATEWAY "192.168.1.1"
 #define NETMASK "255.255.255.0"
 #define PORT 443
-#define CLIENT_SOCKET_TIMEOUT 200
+// 0 puts the socket in non-blocking mode
+#define CLIENT_SOCKET_TIMEOUT 0
 
 Database *db;
 
 EthernetInterface *net;
-
 TLSSocket server;
 Socket *client_socket;
 SocketAddress client_address;
@@ -43,7 +43,6 @@ int WebServer::start() {
     return r;
   }
 
-  // Show the network address
   SocketAddress ip;
   SocketAddress netmask;
   SocketAddress gateway;
