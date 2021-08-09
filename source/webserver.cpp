@@ -22,7 +22,7 @@ char tx_buffer[1024] = {0};
 
 int requests = 0;
 
-WebServer::WebServer(Database *database) { db = database; }
+WebServer::WebServer(Database *database) { db = database;}
 
 int WebServer::start() {
   net = new EthernetInterface;
