@@ -1,40 +1,46 @@
 #include "database.h"
 #include "mbed.h"
 #include "mbed_wait_api.h"
+#include "ui.h"
 #include "webserver.h"
 #include <cstdlib>
 
 Thread thread_web_server;
-Database database;
 
-void webserver_task(WebServer* webServer) {
+void webserver_task(WebServer *webServer) {
   while (true) {
     webServer->tick();
   }
 }
 
 int main(void) {
+  UI ui;
+  ui.init();
+
   Database db;
-  WebServer webServer = WebServer(&database);
+  WebServer webServer = WebServer(&db);
 
   printf("[webserver]: starting\n");
-  
+  ui.log((uint8_t *)"[webserver]: starting");
+
   int status = webServer.start();
   if (status == 0) {
-    printf("Error: No network interface found.\n");
+    printf("[webserver]: error - No network interface found\n");
+    ui.log((uint8_t *)"[webserver]: error - No network interface found");
     exit(1);
   }
 
   printf("[webserver]: started successfully\n");
+  ui.log((uint8_t *)"[webserver]: started successfully");
 
-  printf("[host]: spawing webserver_thread\n");
+  printf("[host]: spawispawningng webserver_thread\n");
+  ui.log((uint8_t *)"[host]: spawning webserver_thread");
   thread_web_server.start(callback(webserver_task, &webServer));
 
-  // listening for http GET request
   while (true) {
-    
   }
 
   webServer.getSocket()->close();
-  printf("Client socket closed\r\n");
+  printf("[webserver]: client socket closed\n");
+  ui.log((uint8_t *)"[webserver]: client socket closed");
 }

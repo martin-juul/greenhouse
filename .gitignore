@@ -19,3 +19,4 @@ BUILD
 .mbed
 COMPONENT_ism43362
 mbed-os
+BSP_DISCO_F746NG

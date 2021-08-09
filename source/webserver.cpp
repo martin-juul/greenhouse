@@ -118,6 +118,8 @@ void WebServer::tick() {
     default:
       printf("[webserver]: Recieved Data: %d bytes\n%.*s\n", strlen(rx_buffer),
              strlen(rx_buffer), rx_buffer);
+
+      printf("%c", rx_buffer[4]);
       if (rx_buffer[0] == 'G' && rx_buffer[1] == 'E' && rx_buffer[2] == 'T' &&
           rx_buffer[4] == '/' && rx_buffer[5] == ' ') {
         // setup http response header & data
