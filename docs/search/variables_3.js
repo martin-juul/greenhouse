@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5fconn_79',['MAX_CONN',['../webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c',1,'webserver.h']]]
+  ['logidx_88',['logIdx',['../ui_8cpp.html#a33177a73a3e47ee6e3e35fb6389e5007',1,'ui.cpp']]]
 ];

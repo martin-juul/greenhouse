@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['latest_65',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]]
+  ['init_73',['init',['../class_u_i.html#a2277decc2cba013de2fbb5a64fbc1543',1,'UI']]]
 ];

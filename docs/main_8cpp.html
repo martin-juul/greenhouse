@@ -75,6 +75,7 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="database_8h_source.html">database.h</a>&quot;</code><br />
 <code>#include &quot;mbed.h&quot;</code><br />
 <code>#include &quot;mbed_wait_api.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ui_8h_source.html">ui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="webserver_8h_source.html">webserver.h</a>&quot;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -82,17 +83,19 @@ Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asource_2main_8cpp" alt=""/></div>
 <map name="asource_2main_8cpp" id="asource_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="155,5,275,32"/>
-<area shape="rect" href="database_8h.html" title=" " alt="" coords="29,155,117,181"/>
-<area shape="rect" title=" " alt="" coords="63,80,130,107"/>
-<area shape="rect" title=" " alt="" coords="154,80,277,107"/>
-<area shape="rect" href="webserver_8h.html" title=" " alt="" coords="301,80,394,107"/>
-<area shape="rect" title=" " alt="" coords="419,80,479,107"/>
-<area shape="rect" title=" " alt="" coords="5,229,60,256"/>
-<area shape="rect" title=" " alt="" coords="85,229,143,256"/>
-<area shape="rect" title=" " alt="" coords="187,155,287,181"/>
-<area shape="rect" title=" " alt="" coords="311,155,383,181"/>
-<area shape="rect" title=" " alt="" coords="407,155,506,181"/>
+<area shape="rect" title=" " alt="" coords="223,5,343,32"/>
+<area shape="rect" href="database_8h.html" title=" " alt="" coords="255,155,343,181"/>
+<area shape="rect" title=" " alt="" coords="82,80,149,107"/>
+<area shape="rect" title=" " alt="" coords="173,80,295,107"/>
+<area shape="rect" href="ui_8h.html" title=" " alt="" coords="13,80,57,107"/>
+<area shape="rect" href="webserver_8h.html" title=" " alt="" coords="370,80,463,107"/>
+<area shape="rect" title=" " alt="" coords="488,80,548,107"/>
+<area shape="rect" title=" " alt="" coords="232,229,287,256"/>
+<area shape="rect" title=" " alt="" coords="311,229,370,256"/>
+<area shape="rect" title=" " alt="" coords="5,155,65,181"/>
+<area shape="rect" title=" " alt="" coords="491,155,591,181"/>
+<area shape="rect" title=" " alt="" coords="615,155,687,181"/>
+<area shape="rect" title=" " alt="" coords="367,155,466,181"/>
 </map>
 </div>
 </div>
@@ -109,8 +112,6 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:aab22c897fb79c29ad3a82e136c1698dc"><td class="memItemLeft" align="right" valign="top">Thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a></td></tr>
 <tr class="separator:aab22c897fb79c29ad3a82e136c1698dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a781c289826d0041d9a1e4d7f746b20a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_database.html">Database</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a781c289826d0041d9a1e4d7f746b20a2">database</a></td></tr>
-<tr class="separator:a781c289826d0041d9a1e4d7f746b20a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
@@ -131,55 +132,65 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00016">16</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;               {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_database.html">Database</a> <a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_web_server.html">WebServer</a> webServer = <a class="code" href="class_web_server.html">WebServer</a>(&amp;<a class="code" href="main_8cpp.html#a781c289826d0041d9a1e4d7f746b20a2">database</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_u_i.html">UI</a> ui;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  ui.<a class="code" href="class_u_i.html#a2277decc2cba013de2fbb5a64fbc1543">init</a>();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  printf(<span class="stringliteral">&quot;[webserver]: starting\n&quot;</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">int</span> status = webServer.<a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordflow">if</span> (status == 0) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    printf(<span class="stringliteral">&quot;Error: No network interface found.\n&quot;</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    exit(1);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  printf(<span class="stringliteral">&quot;[webserver]: started successfully\n&quot;</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  printf(<span class="stringliteral">&quot;[host]: spawing webserver_thread\n&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a>.start(callback(<a class="code" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a>, &amp;webServer));</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_database.html">Database</a> <a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_web_server.html">WebServer</a> webServer = <a class="code" href="class_web_server.html">WebServer</a>(&amp;<a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  printf(<span class="stringliteral">&quot;[webserver]: starting\n&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  ui.<a class="code" href="class_u_i.html#ade4dad51dc0fce12610364021f61a698">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: starting&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">int</span> status = webServer.<a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">if</span> (status == 0) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    printf(<span class="stringliteral">&quot;[webserver]: error - No network interface found\n&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ui.<a class="code" href="class_u_i.html#ade4dad51dc0fce12610364021f61a698">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: error - No network interface found&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// listening for http GET request</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  webServer.<a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">getSocket</a>()-&gt;close();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  printf(<span class="stringliteral">&quot;Client socket closed\r\n&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  printf(<span class="stringliteral">&quot;[webserver]: started successfully\n&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  ui.<a class="code" href="class_u_i.html#ade4dad51dc0fce12610364021f61a698">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: started successfully&quot;</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  printf(<span class="stringliteral">&quot;[host]: spawispawningng webserver_thread\n&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  ui.<a class="code" href="class_u_i.html#ade4dad51dc0fce12610364021f61a698">log</a>((uint8_t *)<span class="stringliteral">&quot;[host]: spawning webserver_thread&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a>.start(callback(<a class="code" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a>, &amp;webServer));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  webServer.<a class="code" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">getSocket</a>()-&gt;close();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  printf(<span class="stringliteral">&quot;[webserver]: client socket closed\n&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  ui.<a class="code" href="class_u_i.html#ade4dad51dc0fce12610364021f61a698">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: client socket closed&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="ttc" id="aclass_database_html"><div class="ttname"><a href="class_database.html">Database</a></div><div class="ttdef"><b>Definition:</b> <a href="database_8h_source.html#l00011">database.h:11</a></div></div>
+<div class="ttc" id="aclass_u_i_html"><div class="ttname"><a href="class_u_i.html">UI</a></div><div class="ttdef"><b>Definition:</b> <a href="ui_8h_source.html#l00004">ui.h:4</a></div></div>
+<div class="ttc" id="aclass_u_i_html_a2277decc2cba013de2fbb5a64fbc1543"><div class="ttname"><a href="class_u_i.html#a2277decc2cba013de2fbb5a64fbc1543">UI::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00010">ui.cpp:10</a></div></div>
+<div class="ttc" id="aclass_u_i_html_ade4dad51dc0fce12610364021f61a698"><div class="ttname"><a href="class_u_i.html#ade4dad51dc0fce12610364021f61a698">UI::log</a></div><div class="ttdeci">void log(uint8_t *text)</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00027">ui.cpp:27</a></div></div>
 <div class="ttc" id="aclass_web_server_html"><div class="ttname"><a href="class_web_server.html">WebServer</a></div><div class="ttdef"><b>Definition:</b> <a href="webserver_8h_source.html#l00064">webserver.h:64</a></div></div>
 <div class="ttc" id="aclass_web_server_html_a5a0b6415cbf2e24be77605b6557a08ad"><div class="ttname"><a href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a></div><div class="ttdeci">int start()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00027">webserver.cpp:27</a></div></div>
-<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00158">webserver.cpp:158</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a781c289826d0041d9a1e4d7f746b20a2"><div class="ttname"><a href="main_8cpp.html#a781c289826d0041d9a1e4d7f746b20a2">database</a></div><div class="ttdeci">Database database</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00008">main.cpp:8</a></div></div>
-<div class="ttc" id="amain_8cpp_html_aab22c897fb79c29ad3a82e136c1698dc"><div class="ttname"><a href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a></div><div class="ttdeci">Thread thread_web_server</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00007">main.cpp:7</a></div></div>
+<div class="ttc" id="aclass_web_server_html_aaa96ec98feed04c5b4d72d51e7869224"><div class="ttname"><a href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224">WebServer::getSocket</a></div><div class="ttdeci">TCPSocket * getSocket()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00160">webserver.cpp:160</a></div></div>
+<div class="ttc" id="amain_8cpp_html_aab22c897fb79c29ad3a82e136c1698dc"><div class="ttname"><a href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a></div><div class="ttdeci">Thread thread_web_server</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00008">main.cpp:8</a></div></div>
 <div class="ttc" id="amain_8cpp_html_aece73e8a477568b8adc56f40046e6b98"><div class="ttname"><a href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a></div><div class="ttdeci">void webserver_task(WebServer *webServer)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00010">main.cpp:10</a></div></div>
 <div class="ttc" id="awebserver_8cpp_html_abeb4b65a273f01a4dee88c9a9dd4c435"><div class="ttname"><a href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a></div><div class="ttdeci">Database * db</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00013">webserver.cpp:13</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="main_8cpp_source.html#l00008">database</a>, <a class="el" href="webserver_8cpp_source.html#l00013">db</a>, <a class="el" href="webserver_8cpp_source.html#l00158">WebServer::getSocket()</a>, <a class="el" href="webserver_8cpp_source.html#l00027">WebServer::start()</a>, <a class="el" href="main_8cpp_source.html#l00007">thread_web_server</a>, and <a class="el" href="main_8cpp_source.html#l00010">webserver_task()</a>.</p>
+<p class="reference">References <a class="el" href="webserver_8cpp_source.html#l00013">db</a>, <a class="el" href="webserver_8cpp_source.html#l00160">WebServer::getSocket()</a>, <a class="el" href="ui_8cpp_source.html#l00010">UI::init()</a>, <a class="el" href="ui_8cpp_source.html#l00027">UI::log()</a>, <a class="el" href="webserver_8cpp_source.html#l00027">WebServer::start()</a>, <a class="el" href="main_8cpp_source.html#l00008">thread_web_server</a>, and <a class="el" href="main_8cpp_source.html#l00010">webserver_task()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#amain_8cpp_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
 <map name="amain_8cpp_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="amain_8cpp_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
-<area shape="rect" title=" " alt="" coords="5,72,56,99"/>
-<area shape="rect" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224" title=" " alt="" coords="104,21,259,48"/>
-<area shape="rect" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad" title=" " alt="" coords="121,72,242,99"/>
-<area shape="rect" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98" title=" " alt="" coords="123,123,239,149"/>
-<area shape="rect" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="307,123,423,149"/>
-<area shape="rect" href="class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="475,5,606,32"/>
-<area shape="rect" href="webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="471,57,611,98"/>
-<area shape="rect" href="webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="482,123,599,149"/>
-<area shape="rect" href="webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="485,173,596,200"/>
-<area shape="rect" href="webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="508,224,573,251"/>
+<area shape="rect" title=" " alt="" coords="5,107,56,133"/>
+<area shape="rect" href="class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224" title=" " alt="" coords="104,5,259,32"/>
+<area shape="rect" href="class_u_i.html#a2277decc2cba013de2fbb5a64fbc1543" title=" " alt="" coords="151,56,211,83"/>
+<area shape="rect" href="class_u_i.html#ade4dad51dc0fce12610364021f61a698" title=" " alt="" coords="151,107,211,133"/>
+<area shape="rect" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad" title=" " alt="" coords="121,157,242,184"/>
+<area shape="rect" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98" title=" " alt="" coords="123,208,239,235"/>
+<area shape="rect" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="307,208,423,235"/>
+<area shape="rect" href="class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="475,91,606,117"/>
+<area shape="rect" href="webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="471,142,611,183"/>
+<area shape="rect" href="webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="482,208,599,235"/>
+<area shape="rect" href="webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="485,259,596,285"/>
+<area shape="rect" href="webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="508,309,573,336"/>
 </map>
 </div>
 
@@ -239,24 +250,6 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a781c289826d0041d9a1e4d7f746b20a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a781c289826d0041d9a1e4d7f746b20a2">&#9670;&nbsp;</a></span>database</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_database.html">Database</a> database</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00008">8</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00016">main()</a>, and <a class="el" href="webserver_8cpp_source.html#l00025">WebServer::WebServer()</a>.</p>
-
-</div>
-</div>
 <a id="aab22c897fb79c29ad3a82e136c1698dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab22c897fb79c29ad3a82e136c1698dc">&#9670;&nbsp;</a></span>thread_web_server</h2>
 
@@ -269,7 +262,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00007">7</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00008">8</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00016">main()</a>.</p>
 
@@ -278,7 +271,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 6 2021 09:07:18 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 9 2021 08:40:49 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
