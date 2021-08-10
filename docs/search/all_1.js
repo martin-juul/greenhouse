@@ -1,6 +1,7 @@
 var searchData=
 [
   ['cert_2',['cert',['../webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000',1,'webserver.h']]],
-  ['client_5faddress_3',['client_address',['../webserver_8cpp.html#af660b380340c6f6f9b1b1a3626d09b53',1,'webserver.cpp']]],
-  ['client_5fsocket_4',['client_socket',['../webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf',1,'webserver.cpp']]]
+  ['clear_5fline_3',['clear_line',['../class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52',1,'UI::Display']]],
+  ['client_5faddress_4',['client_address',['../webserver_8cpp.html#af660b380340c6f6f9b1b1a3626d09b53',1,'webserver.cpp']]],
+  ['client_5fsocket_5',['client_socket',['../webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf',1,'webserver.cpp']]]
 ];

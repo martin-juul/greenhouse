@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sd_5factivity_5fcheck_5frate_116',['SD_ACTIVITY_CHECK_RATE',['../main_8cpp.html#ab204904bbed9bfb91a3a3b8b4b2d03f6',1,'main.cpp']]]
+  ['netmask_132',['NETMASK',['../webserver_8cpp.html#ae656bfb3c008ca5a1f0ad19bd6c749e8',1,'webserver.cpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flush_75',['flush',['../class_database.html#ac61949bdd17bdf29ddc9e0c383e9e2e8',1,'Database']]]
+  ['database_84',['Database',['../class_database.html#a4703c80e6969d33565ea340f768fdadf',1,'Database']]]
 ];
