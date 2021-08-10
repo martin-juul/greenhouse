@@ -1,5 +1,6 @@
 #include "Callback.h"
 #include "EventQueue.h"
+#include "Semaphore.h"
 #include "ThisThread.h"
 #include "database.h"
 #include "mbed.h"
@@ -7,16 +8,34 @@
 #include "ui/ui.h"
 #include "webserver.h"
 #include <cstdlib>
+#include "jukebox.h"
 
 #define MAX_THREAD_STACK 384
 #define SAMPLE_TIME_MS   1000
-#define LOOP_TIME_MS     3000
 
 Thread thread_main;
 Thread thread_web_server;
+Thread thread_jukebox;
+
 UI::Display *display;
 
 EventQueue queue(32 * EVENTS_EVENT_SIZE);
+Semaphore s_db(1);
+
+InterruptIn button(D2);
+
+void button_handler() {
+  if (Jukebox::is_playing()) {
+    Jukebox::stop();
+    return;
+  }
+
+  Jukebox::play();
+}
+
+void jukebox_task() {
+  button.rise(button_handler);
+}
 
 void webserver_task(WebServer *webServer) {
   while (true) {
@@ -32,17 +51,16 @@ void print_cpu_stats()
     display->update_stats(&stats, SAMPLE_TIME_MS);
 }
 
-
 int main(void) {
-  thread_main.start(callback(&queue, &EventQueue::dispatch_forever));
-  printf("[thread_main]: starting in context %p\r\n", thread_main.get_id());
-
   display->init();
+
+  thread_jukebox.start(jukebox_task);
 
   int id;
   Thread *thread_stats;
   EventQueue *stats_queue = mbed_event_queue();
   id = stats_queue->call_every(SAMPLE_TIME_MS, print_cpu_stats);
+
   thread_stats = new Thread(osPriorityNormal, MAX_THREAD_STACK);
 
   Database db;

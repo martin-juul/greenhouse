@@ -92,7 +92,7 @@ void Display::update_stats(mbed_stats_cpu_t *stats, int sample_time_ms) {
   BSP_LCD_DisplayStringAt(25, LINE(3), (uint8_t *)uptime.c_str(), LEFT_MODE);
   BSP_LCD_DisplayStringAt(120, LINE(3), (uint8_t *)idle_time.c_str(), LEFT_MODE);
   BSP_LCD_DisplayStringAt(205, LINE(3), (uint8_t *)sleep.c_str(), LEFT_MODE);
-  BSP_LCD_DisplayStringAt(290, LINE(3), (uint8_t *)deep_sleep.c_str(), LEFT_MODE);
+  BSP_LCD_DisplayStringAt(300, LINE(3), (uint8_t *)deep_sleep.c_str(), LEFT_MODE);
 
   uint64_t diff_usec = (stats->idle_time - prev_idle_time);
   uint8_t idle = (diff_usec * 100) / (sample_time_ms*1000);
