@@ -65,6 +65,7 @@ static const char private_key[] =
 class WebServer {
 public:
   WebServer(Database *database);
+
   /** Starts the webserver
    *
    * @retval void

@@ -9,23 +9,35 @@
             "platform.stdio-baud-rate": 9600,
             "mbed-trace.enable": false,
             "mbed-trace.max-level": "TRACE_LEVEL_DEBUG",
-            "rtos.main-thread-stack-size": 8192
+            "rtos.main-thread-stack-size": 8192,
+            "platform.cpu-stats-enabled": true
         },
         "DISCO_F413ZH": {
-            "target.components_add": ["ism43362"],
+            "target.components_add": ["ism43362", "SD"],
+            "target.features_add": ["STORAGE"],
+            "ism43362.provide-default": true,
+            "SD.provide-default": true,
             "target.macros_add" : ["MBEDTLS_SHA1_C"]
         },
         "DISCO_L475VG_IOT01A": {
-            "target.components_add": ["ism43362"],
+            "target.components_add": ["ism43362", "SD"],
             "ism43362.provide-default": true,
+            "SD.provide-default": true,
+            "target.features_add": ["STORAGE"],
             "target.macros_add" : ["MBEDTLS_SHA1_C"]
         },
         "DISCO_F746G": {
-          "target.components_add": ["ism43362", "SD"],
-          "target.features_add": ["STORAGE"],
-          "target.macros_add" : ["MBEDTLS_SHA1_C"]
+            "target.components_add": ["ism43362", "SD"],
+            "ism43362.provide-default": true,
+            "SD.provide-default": true,
+            "target.features_add": ["STORAGE"],
+            "target.macros_add" : ["MBEDTLS_SHA1_C"]
         },
         "K64F": {
+            "target.components_add": ["ism43362", "SD"],
+            "ism43362.provide-default": true,
+            "SD.provide-default": true,
+            "target.features_add": ["STORAGE"],
             "target.macros_add" : ["MBEDTLS_SHA1_C"]
         }
     }

@@ -18,6 +18,9 @@ public:
    */
   void log(uint8_t *text);
 
+  void clear_line(int line_no);
+
+  void update_stats(mbed_stats_cpu_t *stats, int sample_time_ms);
 };
 
 } // namespace UI
