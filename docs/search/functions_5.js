@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_73',['init',['../class_u_i.html#a2277decc2cba013de2fbb5a64fbc1543',1,'UI']]]
+  ['init_81',['init',['../class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655',1,'UI::Display']]]
 ];

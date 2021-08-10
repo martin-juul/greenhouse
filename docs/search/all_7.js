@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['latest_22',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]],
-  ['log_23',['log',['../class_u_i.html#ade4dad51dc0fce12610364021f61a698',1,'UI']]],
-  ['logidx_24',['logIdx',['../ui_8cpp.html#a33177a73a3e47ee6e3e35fb6389e5007',1,'ui.cpp']]]
+  ['latest_23',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]],
+  ['log_24',['log',['../class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047',1,'UI::Display']]],
+  ['log_5fidx_25',['log_idx',['../ui_8cpp.html#afce72527ccdd305092fd08836e0ef602',1,'ui.cpp']]],
+  ['log_5fy_5fpos_26',['LOG_Y_POS',['../ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e',1,'ui.cpp']]]
 ];

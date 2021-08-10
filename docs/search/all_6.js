@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['init_20',['init',['../class_u_i.html#a2277decc2cba013de2fbb5a64fbc1543',1,'UI']]],
-  ['ip_21',['IP',['../webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'webserver.cpp']]]
+  ['init_21',['init',['../class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655',1,'UI::Display']]],
+  ['ip_22',['IP',['../webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'webserver.cpp']]]
 ];

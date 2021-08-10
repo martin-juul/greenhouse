@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['logidx_88',['logIdx',['../ui_8cpp.html#a33177a73a3e47ee6e3e35fb6389e5007',1,'ui.cpp']]]
+  ['log_5fidx_98',['log_idx',['../ui_8cpp.html#afce72527ccdd305092fd08836e0ef602',1,'ui.cpp']]],
+  ['log_5fy_5fpos_99',['LOG_Y_POS',['../ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e',1,'ui.cpp']]]
 ];
