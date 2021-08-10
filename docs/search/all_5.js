@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['homepage_17',['homepage',['../website_8h.html#a5af132f390e0c539ea85593d8b05630a',1,'website.h']]],
-  ['http_5finternal_5fserver_5ferror_18',['http_internal_server_error',['../webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f',1,'webserver.cpp']]],
-  ['http_5fno_5fcontent_19',['http_no_content',['../webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04',1,'webserver.cpp']]],
-  ['http_5fnot_5ffound_20',['http_not_found',['../webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09',1,'webserver.cpp']]],
-  ['http_5fok_21',['http_ok',['../webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2',1,'webserver.cpp']]],
-  ['humidity_22',['humidity',['../struct_row.html#a2fa96f0ebc1fe6449e40fac9ad2bbbe8',1,'Row']]]
+  ['gateway_18',['GATEWAY',['../webserver_8cpp.html#a861181f1d81b4ccb482b33c7bffad5d1',1,'webserver.cpp']]],
+  ['getsocket_19',['getSocket',['../class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224',1,'WebServer']]],
+  ['greenhouse_20',['Greenhouse',['../index.html',1,'']]]
 ];

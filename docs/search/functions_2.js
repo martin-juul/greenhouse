@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['database_84',['Database',['../class_database.html#a4703c80e6969d33565ea340f768fdadf',1,'Database']]]
+  ['clear_5fline_117',['clear_line',['../class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52',1,'UI::Display']]]
 ];

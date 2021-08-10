@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['cert_2',['cert',['../webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000',1,'webserver.h']]],
-  ['clear_5fline_3',['clear_line',['../class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52',1,'UI::Display']]],
-  ['client_5faddress_4',['client_address',['../webserver_8cpp.html#af660b380340c6f6f9b1b1a3626d09b53',1,'webserver.cpp']]],
-  ['client_5fsocket_5',['client_socket',['../webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf',1,'webserver.cpp']]]
+  ['button_2',['button',['../main_8cpp.html#a40f698147dd498061a7b9dda421db50c',1,'main.cpp']]],
+  ['button_5fhandler_3',['button_handler',['../main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f',1,'main.cpp']]],
+  ['buzzer_4',['buzzer',['../jukebox_8cpp.html#aa1f27e2e1d9b74748fa606f7797b0c54',1,'jukebox.cpp']]]
 ];

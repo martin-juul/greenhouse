@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['latest_25',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]],
-  ['log_26',['log',['../class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047',1,'UI::Display']]],
-  ['log_5fidx_27',['log_idx',['../ui_8cpp.html#afce72527ccdd305092fd08836e0ef602',1,'ui.cpp']]],
-  ['log_5fy_5fpos_28',['LOG_Y_POS',['../ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e',1,'ui.cpp']]],
-  ['loop_5ftime_5fms_29',['LOOP_TIME_MS',['../main_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d',1,'main.cpp']]]
+  ['init_27',['init',['../class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655',1,'UI::Display']]],
+  ['ip_28',['IP',['../webserver_8cpp.html#af00e4b63d736381e1c527ac5ef2c8f3c',1,'webserver.cpp']]],
+  ['is_5fplaying_29',['is_playing',['../namespace_jukebox.html#a9725bc720bf543ed736012b0e32bb7c3',1,'Jukebox']]],
+  ['isplaying_30',['isPlaying',['../jukebox_8cpp.html#af55f7beec49af3268e5ed9aa85dc8d4f',1,'jukebox.cpp']]]
 ];

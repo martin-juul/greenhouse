@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['temperature_53',['temperature',['../struct_row.html#a2164f8c53904e5b8b091d1815f6a73ef',1,'Row']]],
-  ['thread_5fmain_54',['thread_main',['../main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb',1,'main.cpp']]],
-  ['thread_5fweb_5fserver_55',['thread_web_server',['../main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc',1,'main.cpp']]],
-  ['tick_56',['tick',['../class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7',1,'WebServer']]],
-  ['tx_5fbuffer_57',['tx_buffer',['../webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829',1,'webserver.cpp']]]
+  ['readme_2emd_69',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['requests_70',['requests',['../webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b',1,'webserver.cpp']]],
+  ['row_71',['Row',['../struct_row.html',1,'']]],
+  ['rx_5fbuffer_72',['rx_buffer',['../webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec',1,'webserver.cpp']]]
 ];

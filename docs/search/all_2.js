@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['database_6',['Database',['../class_database.html',1,'Database'],['../class_database.html#a4703c80e6969d33565ea340f768fdadf',1,'Database::Database()']]],
-  ['database_2ecpp_7',['database.cpp',['../database_8cpp.html',1,'']]],
-  ['database_2eh_8',['database.h',['../database_8h.html',1,'']]],
-  ['db_9',['db',['../webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435',1,'webserver.cpp']]],
-  ['dewity_10',['dewity',['../struct_row.html#ad47814a3ea0c3ffbc5604eb3fa671aba',1,'Row']]],
-  ['display_11',['display',['../main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518',1,'main.cpp']]],
-  ['display_12',['Display',['../class_u_i_1_1_display.html',1,'UI']]]
+  ['cert_5',['cert',['../webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000',1,'webserver.h']]],
+  ['clear_5fline_6',['clear_line',['../class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52',1,'UI::Display']]],
+  ['client_5faddress_7',['client_address',['../webserver_8cpp.html#af660b380340c6f6f9b1b1a3626d09b53',1,'webserver.cpp']]],
+  ['client_5fsocket_8',['client_socket',['../webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf',1,'webserver.cpp']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['webserver_103',['WebServer',['../class_web_server.html#a69620a99c27a863fbe0a1ecc86f31ae3',1,'WebServer']]],
-  ['webserver_5ftask_104',['webserver_task',['../main_8cpp.html#aece73e8a477568b8adc56f40046e6b98',1,'main.cpp']]]
+  ['tick_140',['tick',['../class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7',1,'WebServer']]]
 ];

@@ -1,20 +1,26 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,137,56,164"/>
-<area shape="rect" id="node2" href="$class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655" title=" " alt="" coords="109,5,220,32"/>
-<area shape="rect" id="node4" href="$class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047" title=" " alt="" coords="285,56,397,83"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad" title=" " alt="" coords="109,112,221,139"/>
-<area shape="rect" id="node10" href="$main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188" title=" " alt="" coords="135,163,194,189"/>
-<area shape="rect" id="node11" href="$class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad" title=" " alt="" coords="104,213,225,240"/>
-<area shape="rect" id="node12" href="$main_8cpp.html#aece73e8a477568b8adc56f40046e6b98" title=" " alt="" coords="107,272,223,299"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,183,56,209"/>
+<area shape="rect" id="node2" href="$class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655" title=" " alt="" coords="109,31,220,57"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4" title=" " alt="" coords="115,107,215,133"/>
+<area shape="rect" id="node11" href="$class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047" title=" " alt="" coords="285,157,397,184"/>
+<area shape="rect" id="node13" href="$main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad" title=" " alt="" coords="109,208,221,235"/>
+<area shape="rect" id="node17" href="$class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad" title=" " alt="" coords="104,259,225,285"/>
+<area shape="rect" id="node18" href="$main_8cpp.html#aece73e8a477568b8adc56f40046e6b98" title=" " alt="" coords="107,347,223,373"/>
 <area shape="rect" id="node3" href="$ui_8cpp.html#ac2d7453cc42463221e2315af20027eb7" title=" " alt="" coords="282,5,399,32"/>
-<area shape="rect" id="node5" href="$class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52" title=" " alt="" coords="456,57,607,84"/>
-<area shape="rect" id="node7" href="$class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b" title=" " alt="" coords="273,107,408,149"/>
-<area shape="rect" id="node8" href="$ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da" title=" " alt="" coords="479,112,584,139"/>
-<area shape="rect" id="node9" href="$ui_8cpp.html#aaa205b3b9149db062a465c47819cbfa3" title=" " alt="" coords="655,112,821,139"/>
-<area shape="rect" id="node13" href="$class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="283,279,399,305"/>
-<area shape="rect" id="node14" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="466,163,597,189"/>
-<area shape="rect" id="node15" href="$webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="461,214,601,255"/>
-<area shape="rect" id="node16" href="$webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="473,280,590,307"/>
-<area shape="rect" id="node17" href="$webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="476,331,587,357"/>
-<area shape="rect" id="node18" href="$webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="499,381,564,408"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a40f698147dd498061a7b9dda421db50c" title=" " alt="" coords="311,56,370,83"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f" title=" " alt="" coords="285,107,396,133"/>
+<area shape="rect" id="node7" href="$namespace_jukebox.html#a9725bc720bf543ed736012b0e32bb7c3" title=" " alt="" coords="462,13,601,40"/>
+<area shape="rect" id="node8" href="$namespace_jukebox.html#ada24443cd239f1e19cc6be9b678ed5b7" title=" " alt="" coords="479,64,583,91"/>
+<area shape="rect" id="node10" href="$namespace_jukebox.html#ac31edf32065bcfacabbbda01653fa31c" title=" " alt="" coords="686,115,790,141"/>
+<area shape="rect" id="node9" href="$jukebox_8cpp.html#aa1f27e2e1d9b74748fa606f7797b0c54" title=" " alt="" coords="869,89,932,116"/>
+<area shape="rect" id="node12" href="$class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52" title=" " alt="" coords="456,165,607,192"/>
+<area shape="rect" id="node14" href="$class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b" title=" " alt="" coords="273,209,408,250"/>
+<area shape="rect" id="node15" href="$ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da" title=" " alt="" coords="479,216,584,243"/>
+<area shape="rect" id="node16" href="$ui_8cpp.html#aaa205b3b9149db062a465c47819cbfa3" title=" " alt="" coords="655,216,821,243"/>
+<area shape="rect" id="node19" href="$class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="283,365,399,392"/>
+<area shape="rect" id="node20" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="466,267,597,293"/>
+<area shape="rect" id="node21" href="$webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="461,318,601,359"/>
+<area shape="rect" id="node22" href="$webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="473,384,590,411"/>
+<area shape="rect" id="node23" href="$webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="476,435,587,461"/>
+<area shape="rect" id="node24" href="$webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="499,485,564,512"/>
 </map>

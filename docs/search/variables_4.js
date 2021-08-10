@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['max_5fconn_115',['MAX_CONN',['../webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c',1,'webserver.h']]],
-  ['max_5flog_5flines_116',['MAX_LOG_LINES',['../ui_8cpp.html#a18cb74837b7f56ced90b6c31f3b8d49e',1,'ui.cpp']]]
+  ['log_5fidx_154',['log_idx',['../ui_8cpp.html#afce72527ccdd305092fd08836e0ef602',1,'ui.cpp']]],
+  ['log_5fy_5fpos_155',['LOG_Y_POS',['../ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e',1,'ui.cpp']]]
 ];

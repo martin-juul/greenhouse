@@ -71,67 +71,85 @@ $(function() {
 <div class="contents">
 <a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;Callback.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;EventQueue.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;ThisThread.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="database_8h.html">database.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;mbed.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;mbed_wait_api.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui_8h.html">ui/ui.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="webserver_8h.html">webserver.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">   11</a></span>&#160;<span class="preprocessor">#define MAX_THREAD_STACK 384</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">   12</a></span>&#160;<span class="preprocessor">#define SAMPLE_TIME_MS   1000</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="main_8cpp.html#a82e97eb5a00d2a0a1e6520b4082de54d">   13</a></span>&#160;<span class="preprocessor">#define LOOP_TIME_MS     3000</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">   15</a></span>&#160;Thread <a class="code" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">thread_main</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">   16</a></span>&#160;Thread <a class="code" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">   17</a></span>&#160;<a class="code" href="class_u_i_1_1_display.html">UI::Display</a> *<a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">   19</a></span>&#160;EventQueue <a class="code" href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">queue</a>(32 * EVENTS_EVENT_SIZE);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a>(<a class="code" href="class_web_server.html">WebServer</a> *webServer) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    webServer-&gt;<a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">tick</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Semaphore.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ThisThread.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="database_8h.html">database.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;mbed.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;mbed_wait_api.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ui_8h.html">ui/ui.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="webserver_8h.html">webserver.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jukebox_8h.html">jukebox.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">   13</a></span>&#160;<span class="preprocessor">#define MAX_THREAD_STACK 384</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">   14</a></span>&#160;<span class="preprocessor">#define SAMPLE_TIME_MS   1000</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">   16</a></span>&#160;Thread <a class="code" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">thread_main</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">   17</a></span>&#160;Thread <a class="code" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="main_8cpp.html#af2adba2d1830ef13093371fc99e4c5c9">   18</a></span>&#160;Thread <a class="code" href="main_8cpp.html#af2adba2d1830ef13093371fc99e4c5c9">thread_jukebox</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">   20</a></span>&#160;<a class="code" href="class_u_i_1_1_display.html">UI::Display</a> *<a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">   22</a></span>&#160;EventQueue <a class="code" href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">queue</a>(32 * EVENTS_EVENT_SIZE);</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="main_8cpp.html#a22703617ca5df70238c9ab51b0ee2f95">   23</a></span>&#160;Semaphore <a class="code" href="main_8cpp.html#a22703617ca5df70238c9ab51b0ee2f95">s_db</a>(1);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="main_8cpp.html#a40f698147dd498061a7b9dda421db50c">   25</a></span>&#160;InterruptIn <a class="code" href="main_8cpp.html#a40f698147dd498061a7b9dda421db50c">button</a>(D2);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a>()</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mbed_stats_cpu_t stats;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    mbed_stats_cpu_get(&amp;stats);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b">update_stats</a>(&amp;stats, <a class="code" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f">button_handler</a>() {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespace_jukebox.html#a9725bc720bf543ed736012b0e32bb7c3">Jukebox::is_playing</a>()) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespace_jukebox.html#ac31edf32065bcfacabbbda01653fa31c">Jukebox::stop</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="namespace_jukebox.html#ada24443cd239f1e19cc6be9b678ed5b7">Jukebox::play</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">   36</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">thread_main</a>.start(callback(&amp;<a class="code" href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">queue</a>, &amp;EventQueue::dispatch_forever));</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  printf(<span class="stringliteral">&quot;[thread_main]: starting in context %p\r\n&quot;</span>, <a class="code" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">thread_main</a>.get_id());</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4">jukebox_task</a>() {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="main_8cpp.html#a40f698147dd498061a7b9dda421db50c">button</a>.rise(<a class="code" href="main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f">button_handler</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655">init</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">int</span> id;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  Thread *thread_stats;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  EventQueue *stats_queue = mbed_event_queue();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">id</span> = stats_queue-&gt;call_every(<a class="code" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a>, <a class="code" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  thread_stats = <span class="keyword">new</span> Thread(osPriorityNormal, <a class="code" href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">MAX_THREAD_STACK</a>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="class_database.html">Database</a> <a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="class_web_server.html">WebServer</a> webServer = <a class="code" href="class_web_server.html">WebServer</a>(&amp;<a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: starting&quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">int</span> status = webServer.<a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (status == 0) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: error - No network interface found&quot;</span>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    exit(1);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a>(<a class="code" href="class_web_server.html">WebServer</a> *webServer) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    webServer-&gt;<a class="code" href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">tick</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a>()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    mbed_stats_cpu_t stats;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    mbed_stats_cpu_get(&amp;stats);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b">update_stats</a>(&amp;stats, <a class="code" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">   54</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#aacbf91b9f8c57fc2cb892c45fd44e655">init</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="main_8cpp.html#af2adba2d1830ef13093371fc99e4c5c9">thread_jukebox</a>.start(<a class="code" href="main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4">jukebox_task</a>);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: IP: 192.168.1.100&quot;</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[host]: spawning webserver_thread&quot;</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a>.start(callback(<a class="code" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a>, &amp;webServer));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  Thread *thread_stats;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  EventQueue *stats_queue = mbed_event_queue();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">id</span> = stats_queue-&gt;call_every(<a class="code" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a>, <a class="code" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  thread_stats = <span class="keyword">new</span> Thread(osPriorityNormal, <a class="code" href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">MAX_THREAD_STACK</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="class_database.html">Database</a> <a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="class_web_server.html">WebServer</a> webServer = <a class="code" href="class_web_server.html">WebServer</a>(&amp;<a class="code" href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: starting&quot;</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">int</span> status = webServer.<a class="code" href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">start</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">if</span> (status == 0) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: error - No network interface found&quot;</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[webserver]: IP: 192.168.1.100&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a>-&gt;<a class="code" href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">log</a>((uint8_t *)<span class="stringliteral">&quot;[host]: spawning webserver_thread&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a>.start(callback(<a class="code" href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a>, &amp;webServer));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
 <div class="ttc" id="aclass_database_html"><div class="ttname"><a href="class_database.html">Database</a></div><div class="ttdef"><b>Definition:</b> <a href="database_8h_source.html#l00012">database.h:12</a></div></div>
 <div class="ttc" id="aclass_u_i_1_1_display_html"><div class="ttname"><a href="class_u_i_1_1_display.html">UI::Display</a></div><div class="ttdef"><b>Definition:</b> <a href="ui_8h_source.html#l00008">ui.h:8</a></div></div>
 <div class="ttc" id="aclass_u_i_1_1_display_html_a11cfb9abcad9521825d7e7830597b047"><div class="ttname"><a href="class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047">UI::Display::log</a></div><div class="ttdeci">void log(uint8_t *text)</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00048">ui.cpp:48</a></div></div>
@@ -141,22 +159,31 @@ $(function() {
 <div class="ttc" id="aclass_web_server_html_a5a0b6415cbf2e24be77605b6557a08ad"><div class="ttname"><a href="class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad">WebServer::start</a></div><div class="ttdeci">int start()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00027">webserver.cpp:27</a></div></div>
 <div class="ttc" id="aclass_web_server_html_aa70cfd8749f4aee55c60e09a5f9211f7"><div class="ttname"><a href="class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7">WebServer::tick</a></div><div class="ttdeci">void tick()</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00091">webserver.cpp:91</a></div></div>
 <div class="ttc" id="adatabase_8h_html"><div class="ttname"><a href="database_8h.html">database.h</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a7c7bdeb5c845cb8bf3a03b1887ceaedb"><div class="ttname"><a href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">thread_main</a></div><div class="ttdeci">Thread thread_main</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00015">main.cpp:15</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00036">main.cpp:36</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a887b3ae549731c4ccb5e3a114515ba9e"><div class="ttname"><a href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">MAX_THREAD_STACK</a></div><div class="ttdeci">#define MAX_THREAD_STACK</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00011">main.cpp:11</a></div></div>
-<div class="ttc" id="amain_8cpp_html_aa3b604f9532f6a6319fb455bf63c4c13"><div class="ttname"><a href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a></div><div class="ttdeci">#define SAMPLE_TIME_MS</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00012">main.cpp:12</a></div></div>
-<div class="ttc" id="amain_8cpp_html_aab22c897fb79c29ad3a82e136c1698dc"><div class="ttname"><a href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a></div><div class="ttdeci">Thread thread_web_server</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00016">main.cpp:16</a></div></div>
+<div class="ttc" id="ajukebox_8h_html"><div class="ttname"><a href="jukebox_8h.html">jukebox.h</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a07a733c30cb8386c0f4f0c0da31045c4"><div class="ttname"><a href="main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4">jukebox_task</a></div><div class="ttdeci">void jukebox_task()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00036">main.cpp:36</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a0ac796e83f1cf69816f9e8cb8262453f"><div class="ttname"><a href="main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f">button_handler</a></div><div class="ttdeci">void button_handler()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00027">main.cpp:27</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a22703617ca5df70238c9ab51b0ee2f95"><div class="ttname"><a href="main_8cpp.html#a22703617ca5df70238c9ab51b0ee2f95">s_db</a></div><div class="ttdeci">Semaphore s_db(1)</div></div>
+<div class="ttc" id="amain_8cpp_html_a40f698147dd498061a7b9dda421db50c"><div class="ttname"><a href="main_8cpp.html#a40f698147dd498061a7b9dda421db50c">button</a></div><div class="ttdeci">InterruptIn button(D2)</div></div>
+<div class="ttc" id="amain_8cpp_html_a7c7bdeb5c845cb8bf3a03b1887ceaedb"><div class="ttname"><a href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">thread_main</a></div><div class="ttdeci">Thread thread_main</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00016">main.cpp:16</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00054">main.cpp:54</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a887b3ae549731c4ccb5e3a114515ba9e"><div class="ttname"><a href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">MAX_THREAD_STACK</a></div><div class="ttdeci">#define MAX_THREAD_STACK</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00013">main.cpp:13</a></div></div>
+<div class="ttc" id="amain_8cpp_html_aa3b604f9532f6a6319fb455bf63c4c13"><div class="ttname"><a href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">SAMPLE_TIME_MS</a></div><div class="ttdeci">#define SAMPLE_TIME_MS</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00014">main.cpp:14</a></div></div>
+<div class="ttc" id="amain_8cpp_html_aab22c897fb79c29ad3a82e136c1698dc"><div class="ttname"><a href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">thread_web_server</a></div><div class="ttdeci">Thread thread_web_server</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00017">main.cpp:17</a></div></div>
 <div class="ttc" id="amain_8cpp_html_aabb6e9b55950bf8e49ecb7e070505188"><div class="ttname"><a href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">queue</a></div><div class="ttdeci">EventQueue queue(32 *EVENTS_EVENT_SIZE)</div></div>
-<div class="ttc" id="amain_8cpp_html_ac24ef55bcb90642393fdfe49e97561ad"><div class="ttname"><a href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a></div><div class="ttdeci">void print_cpu_stats()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00027">main.cpp:27</a></div></div>
-<div class="ttc" id="amain_8cpp_html_ad4508d8a1e69edebf83b81e9adbe8518"><div class="ttname"><a href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a></div><div class="ttdeci">UI::Display * display</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00017">main.cpp:17</a></div></div>
-<div class="ttc" id="amain_8cpp_html_aece73e8a477568b8adc56f40046e6b98"><div class="ttname"><a href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a></div><div class="ttdeci">void webserver_task(WebServer *webServer)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00021">main.cpp:21</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ac24ef55bcb90642393fdfe49e97561ad"><div class="ttname"><a href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">print_cpu_stats</a></div><div class="ttdeci">void print_cpu_stats()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00046">main.cpp:46</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ad4508d8a1e69edebf83b81e9adbe8518"><div class="ttname"><a href="main_8cpp.html#ad4508d8a1e69edebf83b81e9adbe8518">display</a></div><div class="ttdeci">UI::Display * display</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00020">main.cpp:20</a></div></div>
+<div class="ttc" id="amain_8cpp_html_aece73e8a477568b8adc56f40046e6b98"><div class="ttname"><a href="main_8cpp.html#aece73e8a477568b8adc56f40046e6b98">webserver_task</a></div><div class="ttdeci">void webserver_task(WebServer *webServer)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00040">main.cpp:40</a></div></div>
+<div class="ttc" id="amain_8cpp_html_af2adba2d1830ef13093371fc99e4c5c9"><div class="ttname"><a href="main_8cpp.html#af2adba2d1830ef13093371fc99e4c5c9">thread_jukebox</a></div><div class="ttdeci">Thread thread_jukebox</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00018">main.cpp:18</a></div></div>
+<div class="ttc" id="anamespace_jukebox_html_a9725bc720bf543ed736012b0e32bb7c3"><div class="ttname"><a href="namespace_jukebox.html#a9725bc720bf543ed736012b0e32bb7c3">Jukebox::is_playing</a></div><div class="ttdeci">bool is_playing()</div><div class="ttdef"><b>Definition:</b> <a href="jukebox_8cpp_source.html#l00137">jukebox.cpp:137</a></div></div>
+<div class="ttc" id="anamespace_jukebox_html_ac31edf32065bcfacabbbda01653fa31c"><div class="ttname"><a href="namespace_jukebox.html#ac31edf32065bcfacabbbda01653fa31c">Jukebox::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition:</b> <a href="jukebox_8cpp_source.html#l00132">jukebox.cpp:132</a></div></div>
+<div class="ttc" id="anamespace_jukebox_html_ada24443cd239f1e19cc6be9b678ed5b7"><div class="ttname"><a href="namespace_jukebox.html#ada24443cd239f1e19cc6be9b678ed5b7">Jukebox::play</a></div><div class="ttdeci">void play()</div><div class="ttdef"><b>Definition:</b> <a href="jukebox_8cpp_source.html#l00097">jukebox.cpp:97</a></div></div>
 <div class="ttc" id="aui_8h_html"><div class="ttname"><a href="ui_8h.html">ui.h</a></div></div>
 <div class="ttc" id="awebserver_8cpp_html_abeb4b65a273f01a4dee88c9a9dd4c435"><div class="ttname"><a href="webserver_8cpp.html#abeb4b65a273f01a4dee88c9a9dd4c435">db</a></div><div class="ttdeci">Database * db</div><div class="ttdef"><b>Definition:</b> <a href="webserver_8cpp_source.html#l00013">webserver.cpp:13</a></div></div>
 <div class="ttc" id="awebserver_8h_html"><div class="ttname"><a href="webserver_8h.html">webserver.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 10 2021 10:36:44 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Aug 10 2021 13:08:05 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

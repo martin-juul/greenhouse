@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['net_117',['net',['../webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a',1,'webserver.cpp']]]
+  ['max_5fconn_156',['MAX_CONN',['../webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c',1,'webserver.h']]],
+  ['max_5flog_5flines_157',['MAX_LOG_LINES',['../ui_8cpp.html#a18cb74837b7f56ced90b6c31f3b8d49e',1,'ui.cpp']]]
 ];

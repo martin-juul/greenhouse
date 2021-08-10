@@ -1,4 +1,4 @@
-<map id="queue" name="queue">
-<area shape="rect" id="node1" title=" " alt="" coords="104,5,163,32"/>
+<map id="jukebox_task" name="jukebox_task">
+<area shape="rect" id="node1" title=" " alt="" coords="104,5,204,32"/>
 <area shape="rect" id="node2" href="$main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,56,32"/>
 </map>
