@@ -1,4 +1,6 @@
+#include "Callback.h"
 #include "EventQueue.h"
+#include "ThisThread.h"
 #include "database.h"
 #include "mbed.h"
 #include "mbed_wait_api.h"
@@ -6,10 +8,12 @@
 #include "webserver.h"
 #include <cstdlib>
 
-EventQueue queue(32 * EVENTS_EVENT_SIZE);
+#define SD_ACTIVITY_CHECK_RATE 500
 
 Thread thread_main;
 Thread thread_web_server;
+
+EventQueue queue(32 * EVENTS_EVENT_SIZE);
 
 void webserver_task(WebServer *webServer) {
   while (true) {
@@ -20,6 +24,8 @@ void webserver_task(WebServer *webServer) {
 int main(void) {
   thread_main.start(callback(&queue, &EventQueue::dispatch_forever));
   printf("[thread_main]: starting in context %p\r\n", thread_main.get_id());
+
+
 
   UI::Display display;
   display.init();

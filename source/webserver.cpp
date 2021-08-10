@@ -22,7 +22,7 @@ char tx_buffer[1024] = {0};
 
 int requests = 0;
 
-WebServer::WebServer(Database *database) { db = database;}
+WebServer::WebServer(Database *database) { db = database; }
 
 int WebServer::start() {
   net = new EthernetInterface;
@@ -98,7 +98,8 @@ void WebServer::tick() {
   if (error != 0) {
     printf("[webserver]: Connection failed!\n");
   } else {
-    client_socket->set_timeout(0); // timeout of 0 makes it a non-blocking connection
+    client_socket->set_timeout(
+        0); // timeout of 0 makes it a non-blocking connection
     client_socket->getpeername(&client_address);
     printf("[webserver]: Client with IP address %s connected.\n",
            client_address.get_ip_address());

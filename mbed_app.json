@@ -18,8 +18,12 @@
         "DISCO_L475VG_IOT01A": {
             "target.components_add": ["ism43362"],
             "ism43362.provide-default": true,
-            "target.network-default-interface-type": "WIFI",
             "target.macros_add" : ["MBEDTLS_SHA1_C"]
+        },
+        "DISCO_F746G": {
+          "target.components_add": ["ism43362", "SD"],
+          "target.features_add": ["STORAGE"],
+          "target.macros_add" : ["MBEDTLS_SHA1_C"]
         },
         "K64F": {
             "target.macros_add" : ["MBEDTLS_SHA1_C"]

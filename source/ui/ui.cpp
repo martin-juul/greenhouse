@@ -5,6 +5,7 @@
 #include "stm32f7xx_hal.h"
 #include <cstdint>
 #include <cstdio>
+#include <cstring>
 #include <queue>
 #include <vector>
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Callback.h"
 #include "stm32746g_discovery.h"
+#include "mbed_stats.h"
 #include <cstdint>
 
 namespace UI {
@@ -17,6 +17,7 @@ public:
    * @param text Text to write
    */
   void log(uint8_t *text);
+
 };
 
 } // namespace UI
