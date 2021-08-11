@@ -2,7 +2,7 @@
 
 Server component of STM32 greenhouse project.
 
-![Preview](./.github/preview.jpg)
+
 
 ## Features
 
