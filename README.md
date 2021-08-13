@@ -7,6 +7,14 @@ Server component of STM32 greenhouse project.
 ## Features
 
 - HTTP Webserver
+- "Jukebox"
+
+## Peripherals
+
+| Name | Port |
+|------|------|
+| Grove Button v1.2 | D2 |
+| Grove Buzzer v1.2 | D3 |
 
 ## WebServer
 
@@ -45,3 +53,7 @@ Server component of STM32 greenhouse project.
 
 * Closing connection 0
 ```
+
+## Jukebox
+
+Listen to the Pirates of the Caribbean theme song by pressing the peripheral button!
