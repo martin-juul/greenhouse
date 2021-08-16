@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['webserver_90',['WebServer',['../class_web_server.html',1,'WebServer'],['../class_web_server.html#a69620a99c27a863fbe0a1ecc86f31ae3',1,'WebServer::WebServer()']]],
-  ['webserver_2ecpp_91',['webserver.cpp',['../webserver_8cpp.html',1,'']]],
-  ['webserver_2eh_92',['webserver.h',['../webserver_8h.html',1,'']]],
-  ['webserver_5ftask_93',['webserver_task',['../main_8cpp.html#aece73e8a477568b8adc56f40046e6b98',1,'main.cpp']]],
-  ['website_2eh_94',['website.h',['../website_8h.html',1,'']]]
+  ['ui_117',['UI',['../namespace_u_i.html',1,'']]],
+  ['ui_2ecpp_118',['ui.cpp',['../ui_8cpp.html',1,'']]],
+  ['ui_2eh_119',['ui.h',['../ui_8h.html',1,'']]],
+  ['update_5fstats_120',['update_stats',['../class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b',1,'UI::Display']]]
 ];

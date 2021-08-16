@@ -1,7 +1,10 @@
 <map id="UI::Display::clear_line" name="UI::Display::clear_line">
-<area shape="rect" id="node1" title=" " alt="" coords="447,32,597,59"/>
-<area shape="rect" id="node2" href="$class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047" title=" " alt="" coords="104,5,216,32"/>
-<area shape="rect" id="node4" href="$class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b" title=" " alt="" coords="264,54,399,95"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,32,56,59"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad" title=" " alt="" coords="104,57,216,84"/>
+<area shape="rect" id="node1" title=" " alt="" coords="821,77,972,104"/>
+<area shape="rect" id="node2" href="$class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047" title=" " alt="" coords="327,48,439,75"/>
+<area shape="rect" id="node5" href="$class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b" title=" " alt="" coords="639,99,773,141"/>
+<area shape="rect" id="node3" href="$class_tasks_1_1_storage.html#a2d3b9a534c5936607d2ace4737d529b1" title=" " alt="" coords="104,5,272,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,56,56,83"/>
+<area shape="rect" id="node6" href="$stats__task_8cpp.html#a886f05966b13c466f8dba1e2d936e834" title=" " alt="" coords="495,107,591,133"/>
+<area shape="rect" id="node7" href="$class_tasks_1_1_stats.html#a80e362f9e221e3e6e9b8fc5cbae2e88f" title=" " alt="" coords="320,107,447,133"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#ad251e5ffb458e03437b9a95d923adc3a" title=" " alt="" coords="147,107,229,133"/>
 </map>

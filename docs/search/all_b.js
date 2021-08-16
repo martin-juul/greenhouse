@@ -1,20 +1,7 @@
 var searchData=
 [
-  ['net_46',['net',['../webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a',1,'webserver.cpp']]],
-  ['netmask_47',['NETMASK',['../webserver_8cpp.html#ae656bfb3c008ca5a1f0ad19bd6c749e8',1,'webserver.cpp']]],
-  ['note_5fa4_48',['NOTE_A4',['../jukebox_8cpp.html#a4ede898d3fa744ffb02d5e9b66994ef3',1,'jukebox.cpp']]],
-  ['note_5fa5_49',['NOTE_A5',['../jukebox_8cpp.html#a304d30fa9be20c63c38c57787d037855',1,'jukebox.cpp']]],
-  ['note_5fb4_50',['NOTE_B4',['../jukebox_8cpp.html#a9ed6d5c8563ae60e6d2716e13d261386',1,'jukebox.cpp']]],
-  ['note_5fb5_51',['NOTE_B5',['../jukebox_8cpp.html#a88aac44b58d74d5aa5749e17a22b8cdd',1,'jukebox.cpp']]],
-  ['note_5fc4_52',['NOTE_C4',['../jukebox_8cpp.html#adbed706152a3d7114327fc5af3c7e07c',1,'jukebox.cpp']]],
-  ['note_5fc5_53',['NOTE_C5',['../jukebox_8cpp.html#a8afb484cf5507628f20dd2822a5b2e79',1,'jukebox.cpp']]],
-  ['note_5fd4_54',['NOTE_D4',['../jukebox_8cpp.html#a6162f78ec6fc3457a077602a77e36992',1,'jukebox.cpp']]],
-  ['note_5fd5_55',['NOTE_D5',['../jukebox_8cpp.html#a37abdd5b16959e6265e7de75022f5dde',1,'jukebox.cpp']]],
-  ['note_5fe4_56',['NOTE_E4',['../jukebox_8cpp.html#a147e4663d8161df841c418859a70f66f',1,'jukebox.cpp']]],
-  ['note_5fe5_57',['NOTE_E5',['../jukebox_8cpp.html#a441475178599565b3dd4572cebbdf28c',1,'jukebox.cpp']]],
-  ['note_5ff4_58',['NOTE_F4',['../jukebox_8cpp.html#aff20d9abb2ef6f25afeb44245129eba6',1,'jukebox.cpp']]],
-  ['note_5ff5_59',['NOTE_F5',['../jukebox_8cpp.html#a88cbd6246f212e3bcbecbb032c8e2000',1,'jukebox.cpp']]],
-  ['note_5fg4_60',['NOTE_G4',['../jukebox_8cpp.html#a588324691d836c7cdf1dd8cc071eeecc',1,'jukebox.cpp']]],
-  ['note_5fg5_61',['NOTE_G5',['../jukebox_8cpp.html#af71ac5d772736db7a12fd9f9521dd475',1,'jukebox.cpp']]],
-  ['notes_62',['notes',['../jukebox_8cpp.html#adc2e4c9664abef1fd7b4bb30a647ac6e',1,'jukebox.cpp']]]
+  ['latest_51',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]],
+  ['log_52',['log',['../class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047',1,'UI::Display']]],
+  ['log_5fidx_53',['log_idx',['../ui_8cpp.html#afce72527ccdd305092fd08836e0ef602',1,'ui.cpp']]],
+  ['log_5fy_5fpos_54',['LOG_Y_POS',['../ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e',1,'ui.cpp']]]
 ];

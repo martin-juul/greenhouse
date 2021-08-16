@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_5fstats_141',['update_stats',['../class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b',1,'UI::Display']]]
+  ['tick_192',['tick',['../class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7',1,'WebServer']]]
 ];

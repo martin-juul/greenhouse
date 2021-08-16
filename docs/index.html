@@ -71,9 +71,15 @@ $(function() {
 Features</h1>
 <ul>
 <li>HTTP Webserver</li>
+<li>SD Card with FAT fs</li>
 <li>"Jukebox"</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
+Project Structure</h1>
+<div class="fragment"><div class="line">/source</div>
+<div class="line">  /tasks - Sub systems</div>
+<div class="line">  /ui</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
 Peripherals</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -83,7 +89,7 @@ Peripherals</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Grove Buzzer v1.2   </td><td class="markdownTableBodyNone">D3   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 WebServer</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -91,7 +97,7 @@ WebServer</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">192.168.1.100   </td><td class="markdownTableBodyNone">443   </td><td class="markdownTableBodyNone">HTTPS   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Endpoints</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -101,7 +107,7 @@ Endpoints</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>/</code>   </td><td class="markdownTableBodyNone"><code>POST</code>   </td><td class="markdownTableBodyNone"><code>204</code>   </td><td class="markdownTableBodyNone">Destination for sensor data in CSV format   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Sample request</h3>
 <div class="fragment"><div class="line">* Preparing request to http://192.168.1.100/</div>
 <div class="line">* Current time is 2021-08-10T08:24:52.114Z</div>
@@ -123,14 +129,14 @@ Sample request</h3>
 <div class="line">&lt; Connection: Close</div>
 <div class="line"> </div>
 <div class="line">* Closing connection 0</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
 Jukebox</h1>
 <p>Listen to the Pirates of the Caribbean theme song by pressing the peripheral button! </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 13 2021 07:56:21 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 16 2021 20:21:17 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

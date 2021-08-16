@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['button_114',['button',['../main_8cpp.html#a40f698147dd498061a7b9dda421db50c',1,'main.cpp']]],
-  ['button_5fhandler_115',['button_handler',['../main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f',1,'main.cpp']]],
-  ['buzzer_116',['buzzer',['../jukebox_8cpp.html#aa1f27e2e1d9b74748fa606f7797b0c54',1,'jukebox.cpp']]]
+  ['all_157',['all',['../class_database.html#a58aedca9d371e0e8c121c13fbcf6d0b4',1,'Database']]],
+  ['append_158',['append',['../class_database.html#a2aa879df1b57e6abdf5f811006b822f3',1,'Database']]]
 ];

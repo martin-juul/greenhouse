@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['play_133',['play',['../namespace_jukebox.html#ada24443cd239f1e19cc6be9b678ed5b7',1,'Jukebox']]],
-  ['print_5fcpu_5fstats_134',['print_cpu_stats',['../main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad',1,'main.cpp']]]
+  ['latest_178',['latest',['../class_database.html#a974db5f6348bd342069c8c75ca006431',1,'Database']]],
+  ['log_179',['log',['../class_u_i_1_1_display.html#a11cfb9abcad9521825d7e7830597b047',1,'UI::Display']]]
 ];

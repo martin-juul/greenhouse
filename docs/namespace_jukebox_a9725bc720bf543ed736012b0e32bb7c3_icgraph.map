@@ -1,6 +1,7 @@
 <map id="Jukebox::is_playing" name="Jukebox::is_playing">
-<area shape="rect" id="node1" title=" " alt="" coords="411,5,549,32"/>
-<area shape="rect" id="node2" href="$main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f" title=" " alt="" coords="252,5,363,32"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4" title=" " alt="" coords="104,5,204,32"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="613,5,752,32"/>
+<area shape="rect" id="node2" href="$jukebox__task_8cpp.html#aa9b68d9bc8f21c9e13c19c7e6e5bd4bc" title=" " alt="" coords="447,5,565,32"/>
+<area shape="rect" id="node3" href="$class_tasks_1_1_jukebox.html#aac7f77ddc397e5890dbe18400af3b742" title=" " alt="" coords="252,5,399,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a07a733c30cb8386c0f4f0c0da31045c4" title=" " alt="" coords="104,5,204,32"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,56,32"/>
 </map>

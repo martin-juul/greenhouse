@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['requests_162',['requests',['../webserver_8cpp.html#ab299dd99b9a78c1e18b50f98ce37054b',1,'webserver.cpp']]],
-  ['rx_5fbuffer_163',['rx_buffer',['../webserver_8cpp.html#a51cf5c4f359847e05a99fd2bcfc883ec',1,'webserver.cpp']]]
+  ['net_215',['net',['../webserver_8cpp.html#ae6babd4393259421ad93d2dc4315ed9a',1,'webserver.cpp']]],
+  ['notes_216',['notes',['../jukebox_8cpp.html#adc2e4c9664abef1fd7b4bb30a647ac6e',1,'jukebox.cpp']]]
 ];

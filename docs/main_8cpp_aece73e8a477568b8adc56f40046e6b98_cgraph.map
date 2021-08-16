@@ -1,9 +1,10 @@
 <map id="webserver_task" name="webserver_task">
-<area shape="rect" id="node1" title=" " alt="" coords="5,123,121,149"/>
-<area shape="rect" id="node2" href="$class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="169,123,285,149"/>
-<area shape="rect" id="node3" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="338,5,469,32"/>
-<area shape="rect" id="node4" href="$webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="333,57,473,98"/>
-<area shape="rect" id="node5" href="$webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="345,123,462,149"/>
-<area shape="rect" id="node6" href="$webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="348,173,459,200"/>
-<area shape="rect" id="node7" href="$webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="371,224,436,251"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,148,121,175"/>
+<area shape="rect" id="node2" href="$class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7" title=" " alt="" coords="169,148,285,175"/>
+<area shape="rect" id="node3" href="$class_database.html#a2aa879df1b57e6abdf5f811006b822f3" title=" " alt="" coords="342,5,473,32"/>
+<area shape="rect" id="node4" href="$webserver_8cpp.html#ae1f4a3ed0d4150e9d26c066fd8bb675f" title=" " alt="" coords="337,57,477,98"/>
+<area shape="rect" id="node5" href="$webserver_8cpp.html#abeed41ba5ee1cefe95473c092afd6a04" title=" " alt="" coords="349,123,466,149"/>
+<area shape="rect" id="node6" href="$webserver_8cpp.html#a6f1c93a204886eb7e45ae357f1c6ba09" title=" " alt="" coords="352,173,463,200"/>
+<area shape="rect" id="node7" href="$webserver_8cpp.html#a2b03a3d8c78998700f0c31a33a46c1b2" title=" " alt="" coords="375,224,440,251"/>
+<area shape="rect" id="node8" href="$class_http_response_builder.html#a2419b031a1175cc49ca15d4c570ed0f3" title=" " alt="" coords="333,275,481,317"/>
 </map>

@@ -1,9 +1,22 @@
 var searchData=
 [
-  ['temperature_80',['temperature',['../struct_row.html#a2164f8c53904e5b8b091d1815f6a73ef',1,'Row']]],
-  ['thread_5fjukebox_81',['thread_jukebox',['../main_8cpp.html#af2adba2d1830ef13093371fc99e4c5c9',1,'main.cpp']]],
-  ['thread_5fmain_82',['thread_main',['../main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb',1,'main.cpp']]],
-  ['thread_5fweb_5fserver_83',['thread_web_server',['../main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc',1,'main.cpp']]],
-  ['tick_84',['tick',['../class_web_server.html#aa70cfd8749f4aee55c60e09a5f9211f7',1,'WebServer']]],
-  ['tx_5fbuffer_85',['tx_buffer',['../webserver_8cpp.html#abe07075b407d7c1d39ddf7783d86d829',1,'webserver.cpp']]]
+  ['sample_5ftime_5fms_87',['SAMPLE_TIME_MS',['../stats__task_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13',1,'stats_task.cpp']]],
+  ['send_88',['send',['../class_http_response_builder.html#a2419b031a1175cc49ca15d4c570ed0f3',1,'HttpResponseBuilder']]],
+  ['server_89',['server',['../webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2',1,'webserver.cpp']]],
+  ['set_5fdefault_5ffont_90',['set_default_font',['../ui_8cpp.html#ac2d7453cc42463221e2315af20027eb7',1,'ui.cpp']]],
+  ['set_5fheader_91',['set_header',['../class_http_response_builder.html#a3896f0c0deef81bc87724e1f06d4fc8f',1,'HttpResponseBuilder']]],
+  ['setdisplay_92',['setDisplay',['../class_tasks_1_1_stats.html#a3105a53bcf26ae5ab71c1bd21a3cac52',1,'Tasks::Stats']]],
+  ['start_93',['start',['../class_tasks_1_1_jukebox.html#aac7f77ddc397e5890dbe18400af3b742',1,'Tasks::Jukebox::start()'],['../class_tasks_1_1_stats.html#a80e362f9e221e3e6e9b8fc5cbae2e88f',1,'Tasks::Stats::start()'],['../class_web_server.html#a5a0b6415cbf2e24be77605b6557a08ad',1,'WebServer::start()']]],
+  ['stats_94',['Stats',['../class_tasks_1_1_stats.html#af323aeda185f5ba576675effac115ed8',1,'Tasks::Stats::Stats()'],['../class_tasks_1_1_stats.html',1,'Tasks::Stats']]],
+  ['stats_5fqueue_95',['stats_queue',['../stats__task_8cpp.html#a482b664bd65df692aa3ae7e826bab5b9',1,'stats_task.cpp']]],
+  ['stats_5ftask_96',['stats_task',['../main_8cpp.html#ad251e5ffb458e03437b9a95d923adc3a',1,'main.cpp']]],
+  ['stats_5ftask_2ecpp_97',['stats_task.cpp',['../stats__task_8cpp.html',1,'']]],
+  ['stats_5ftask_2eh_98',['stats_task.h',['../stats__task_8h.html',1,'']]],
+  ['status_5fcode_99',['status_code',['../class_http_response_builder.html#a8b319c5e04ae559c6f40ab5b88f0378f',1,'HttpResponseBuilder']]],
+  ['status_5fmessage_100',['status_message',['../class_http_response_builder.html#ac6b5db627731beb1a268c2fbac30961e',1,'HttpResponseBuilder']]],
+  ['stop_101',['stop',['../class_tasks_1_1_stats.html#a094c725d02d2cd9225691b833d9dd991',1,'Tasks::Stats::stop()'],['../namespace_jukebox.html#ac31edf32065bcfacabbbda01653fa31c',1,'Jukebox::stop()']]],
+  ['storage_102',['Storage',['../class_tasks_1_1_storage.html',1,'Tasks']]],
+  ['storage_5ftask_2ecpp_103',['storage_task.cpp',['../storage__task_8cpp.html',1,'']]],
+  ['storage_5ftask_2eh_104',['storage_task.h',['../storage__task_8h.html',1,'']]],
+  ['store_105',['store',['../database_8cpp.html#a3d18d938af56e971fb2b0adab7e3065e',1,'database.cpp']]]
 ];

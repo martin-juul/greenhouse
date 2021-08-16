@@ -63,12 +63,31 @@ $(function() {
 <div class="contents">
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
-<h3><a id="index_b"></a>- b -</h3><ul>
-<li>button()
-: <a class="el" href="main_8cpp.html#a40f698147dd498061a7b9dda421db50c">main.cpp</a>
+<h3><a id="index__5F"></a>- _ -</h3><ul>
+<li>_button_handler()
+: <a class="el" href="jukebox__task_8cpp.html#aa9b68d9bc8f21c9e13c19c7e6e5bd4bc">jukebox_task.cpp</a>
 </li>
-<li>button_handler()
-: <a class="el" href="main_8cpp.html#a0ac796e83f1cf69816f9e8cb8262453f">main.cpp</a>
+<li>_display
+: <a class="el" href="stats__task_8cpp.html#a12930490043c0bd8c6aee7fd6f0a93b0">stats_task.cpp</a>
+</li>
+<li>_thread
+: <a class="el" href="stats__task_8cpp.html#a69916ebcbe741158266c7d910c7b077e">stats_task.cpp</a>
+</li>
+<li>_thread_id
+: <a class="el" href="stats__task_8cpp.html#aa9ca0818c13e74a0dcf76fd0d94742f9">stats_task.cpp</a>
+</li>
+</ul>
+
+
+<h3><a id="index_b"></a>- b -</h3><ul>
+<li>bd
+: <a class="el" href="storage__task_8cpp.html#ad21e16e27c1dbd17c938cf81cecbac02">storage_task.cpp</a>
+</li>
+<li>BUFFER_MAX_LEN
+: <a class="el" href="storage__task_8cpp.html#a38f86d2e01f6f1fa8b3387d09ebf47e4">storage_task.cpp</a>
+</li>
+<li>button()
+: <a class="el" href="jukebox__task_8cpp.html#a40f698147dd498061a7b9dda421db50c">jukebox_task.cpp</a>
 </li>
 <li>buzzer()
 : <a class="el" href="jukebox_8cpp.html#aa1f27e2e1d9b74748fa606f7797b0c54">jukebox.cpp</a>
@@ -86,6 +105,9 @@ $(function() {
 <li>client_socket
 : <a class="el" href="webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf">webserver.cpp</a>
 </li>
+<li>collect_stats()
+: <a class="el" href="stats__task_8cpp.html#a886f05966b13c466f8dba1e2d936e834">stats_task.cpp</a>
+</li>
 </ul>
 
 
@@ -102,9 +124,22 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>FORCE_REFORMAT
+: <a class="el" href="storage__task_8cpp.html#a95e3b75cbefd6496137ec50c6a35fd7a">storage_task.cpp</a>
+</li>
+<li>fs()
+: <a class="el" href="storage__task_8cpp.html#a7ac00510718b2cce17742dfe72b275ca">storage_task.cpp</a>
+</li>
+</ul>
+
+
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>GATEWAY
 : <a class="el" href="webserver_8cpp.html#a861181f1d81b4ccb482b33c7bffad5d1">webserver.cpp</a>
+</li>
+<li>get_http_status_string()
+: <a class="el" href="http__response__builder_8h.html#aa61b67fe91855359abd92a8d3ab932b1">http_response_builder.h</a>
 </li>
 </ul>
 
@@ -169,7 +204,7 @@ $(function() {
 : <a class="el" href="ui_8cpp.html#a18cb74837b7f56ced90b6c31f3b8d49e">ui.cpp</a>
 </li>
 <li>MAX_THREAD_STACK
-: <a class="el" href="main_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">main.cpp</a>
+: <a class="el" href="stats__task_8cpp.html#a887b3ae549731c4ccb5e3a114515ba9e">stats_task.cpp</a>
 </li>
 <li>microsecond_to_sec_str()
 : <a class="el" href="ui_8cpp.html#aaa205b3b9149db062a465c47819cbfa3">ui.cpp</a>
@@ -239,18 +274,8 @@ $(function() {
 <li>prev_idle_time
 : <a class="el" href="ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73">ui.cpp</a>
 </li>
-<li>print_cpu_stats()
-: <a class="el" href="main_8cpp.html#ac24ef55bcb90642393fdfe49e97561ad">main.cpp</a>
-</li>
 <li>private_key
 : <a class="el" href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">webserver.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_q"></a>- q -</h3><ul>
-<li>queue()
-: <a class="el" href="main_8cpp.html#aabb6e9b55950bf8e49ecb7e070505188">main.cpp</a>
 </li>
 </ul>
 
@@ -266,17 +291,20 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>s_db()
-: <a class="el" href="main_8cpp.html#a22703617ca5df70238c9ab51b0ee2f95">main.cpp</a>
-</li>
 <li>SAMPLE_TIME_MS
-: <a class="el" href="main_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">main.cpp</a>
+: <a class="el" href="stats__task_8cpp.html#aa3b604f9532f6a6319fb455bf63c4c13">stats_task.cpp</a>
 </li>
 <li>server
 : <a class="el" href="webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2">webserver.cpp</a>
 </li>
 <li>set_default_font()
 : <a class="el" href="ui_8cpp.html#ac2d7453cc42463221e2315af20027eb7">ui.cpp</a>
+</li>
+<li>stats_queue
+: <a class="el" href="stats__task_8cpp.html#a482b664bd65df692aa3ae7e826bab5b9">stats_task.cpp</a>
+</li>
+<li>stats_task()
+: <a class="el" href="main_8cpp.html#ad251e5ffb458e03437b9a95d923adc3a">main.cpp</a>
 </li>
 <li>store
 : <a class="el" href="database_8cpp.html#a3d18d938af56e971fb2b0adab7e3065e">database.cpp</a>
@@ -285,11 +313,20 @@ $(function() {
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>task_stats
+: <a class="el" href="main_8cpp.html#a8f139080f1c352071de50606ab5ea38c">main.cpp</a>
+</li>
 <li>thread_jukebox
 : <a class="el" href="main_8cpp.html#af2adba2d1830ef13093371fc99e4c5c9">main.cpp</a>
 </li>
 <li>thread_main
 : <a class="el" href="main_8cpp.html#a7c7bdeb5c845cb8bf3a03b1887ceaedb">main.cpp</a>
+</li>
+<li>thread_sd
+: <a class="el" href="main_8cpp.html#a925e286890bc14bd4bf38be5755d1e06">main.cpp</a>
+</li>
+<li>thread_stats
+: <a class="el" href="main_8cpp.html#aa50e146b8256991f20e59acec6ab0448">main.cpp</a>
 </li>
 <li>thread_web_server
 : <a class="el" href="main_8cpp.html#aab22c897fb79c29ad3a82e136c1698dc">main.cpp</a>
@@ -308,7 +345,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 13 2021 07:56:21 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 16 2021 20:21:17 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

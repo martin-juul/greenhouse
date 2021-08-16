@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['row_97',['Row',['../struct_row.html',1,'']]]
+  ['httpresponsebuilder_128',['HttpResponseBuilder',['../class_http_response_builder.html',1,'']]]
 ];

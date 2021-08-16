@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getsocket_120',['getSocket',['../class_web_server.html#aaa96ec98feed04c5b4d72d51e7869224',1,'WebServer']]]
+  ['example_165',['example',['../class_tasks_1_1_storage.html#a2d3b9a534c5936607d2ace4737d529b1',1,'Tasks::Storage']]]
 ];

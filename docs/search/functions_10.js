@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['webserver_142',['WebServer',['../class_web_server.html#a69620a99c27a863fbe0a1ecc86f31ae3',1,'WebServer']]],
-  ['webserver_5ftask_143',['webserver_task',['../main_8cpp.html#aece73e8a477568b8adc56f40046e6b98',1,'main.cpp']]]
+  ['update_5fstats_193',['update_stats',['../class_u_i_1_1_display.html#ac2b22179307ebfb829af1a78e24d8b4b',1,'UI::Display']]]
 ];

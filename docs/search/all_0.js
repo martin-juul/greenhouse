@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['all_0',['all',['../class_database.html#a58aedca9d371e0e8c121c13fbcf6d0b4',1,'Database']]],
-  ['append_1',['append',['../class_database.html#a2aa879df1b57e6abdf5f811006b822f3',1,'Database']]]
+  ['_5fbutton_5fhandler_0',['_button_handler',['../jukebox__task_8cpp.html#aa9b68d9bc8f21c9e13c19c7e6e5bd4bc',1,'jukebox_task.cpp']]],
+  ['_5fdisplay_1',['_display',['../stats__task_8cpp.html#a12930490043c0bd8c6aee7fd6f0a93b0',1,'stats_task.cpp']]],
+  ['_5fthread_2',['_thread',['../stats__task_8cpp.html#a69916ebcbe741158266c7d910c7b077e',1,'stats_task.cpp']]],
+  ['_5fthread_5fid_3',['_thread_id',['../stats__task_8cpp.html#aa9ca0818c13e74a0dcf76fd0d94742f9',1,'stats_task.cpp']]]
 ];

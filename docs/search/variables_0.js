@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cert_144',['cert',['../webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000',1,'webserver.h']]],
-  ['client_5faddress_145',['client_address',['../webserver_8cpp.html#af660b380340c6f6f9b1b1a3626d09b53',1,'webserver.cpp']]],
-  ['client_5fsocket_146',['client_socket',['../webserver_8cpp.html#a98b17440ac4b68bfe5cf770e08a417cf',1,'webserver.cpp']]]
+  ['_5fdisplay_196',['_display',['../stats__task_8cpp.html#a12930490043c0bd8c6aee7fd6f0a93b0',1,'stats_task.cpp']]],
+  ['_5fthread_197',['_thread',['../stats__task_8cpp.html#a69916ebcbe741158266c7d910c7b077e',1,'stats_task.cpp']]],
+  ['_5fthread_5fid_198',['_thread_id',['../stats__task_8cpp.html#aa9ca0818c13e74a0dcf76fd0d94742f9',1,'stats_task.cpp']]]
 ];

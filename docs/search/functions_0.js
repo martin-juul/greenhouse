@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['all_112',['all',['../class_database.html#a58aedca9d371e0e8c121c13fbcf6d0b4',1,'Database']]],
-  ['append_113',['append',['../class_database.html#a2aa879df1b57e6abdf5f811006b822f3',1,'Database']]]
+  ['_5fbutton_5fhandler_156',['_button_handler',['../jukebox__task_8cpp.html#aa9b68d9bc8f21c9e13c19c7e6e5bd4bc',1,'jukebox_task.cpp']]]
 ];

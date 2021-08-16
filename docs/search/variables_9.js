@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['server_164',['server',['../webserver_8cpp.html#a58a2aa14ca04823eb175fa13ae0417b2',1,'webserver.cpp']]],
-  ['store_165',['store',['../database_8cpp.html#a3d18d938af56e971fb2b0adab7e3065e',1,'database.cpp']]]
+  ['prev_5fidle_5ftime_217',['prev_idle_time',['../ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73',1,'ui.cpp']]],
+  ['private_5fkey_218',['private_key',['../webserver_8h.html#aa8698b8c55221a0175767b03770a42b6',1,'webserver.h']]]
 ];
