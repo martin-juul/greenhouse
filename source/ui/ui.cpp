@@ -12,7 +12,7 @@
 
 using namespace UI;
 
-static const int MAX_LOG_LINES = 10;
+static const int MAX_LOG_LINES = 6;
 static const int LOG_Y_POS = 13;
 int log_idx = 0;
 uint64_t prev_idle_time = 0;

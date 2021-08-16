@@ -7,7 +7,16 @@ Server component of STM32 greenhouse project.
 ## Features
 
 - HTTP Webserver
+- SD Card with FAT fs
 - "Jukebox"
+
+## Project Structure
+
+```
+/source
+  /tasks - Sub systems
+  /ui
+```
 
 ## Peripherals
 

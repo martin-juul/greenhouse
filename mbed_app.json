@@ -25,8 +25,7 @@
         },
         "DISCO_F746NG": {
             "target.components_add": ["SD"],
-            "target.features_add": ["STORAGE"],
-            "target.macros_add" : ["MBEDTLS_SHA1_C"]
+            "target.features_add": ["STORAGE"]
         }
     }
 }

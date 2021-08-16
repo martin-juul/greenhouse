@@ -1,3 +1,4 @@
+#include "http/http_response_builder.h"
 #include "webserver.h"
 #include "EthernetInterface.h"
 #include "mbed.h"
@@ -144,6 +145,9 @@ void WebServer::tick() {
         r.humidity = humidity;
 
         db->append(r);
+
+        HttpResponseBuilder builder(204);
+        builder.send(client_socket, nullptr, 0);
 
         http_no_content();
       } else {
