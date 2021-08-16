@@ -10,33 +10,21 @@
             "mbed-trace.enable": false,
             "mbed-trace.max-level": "TRACE_LEVEL_DEBUG",
             "rtos.main-thread-stack-size": 8192,
-            "platform.cpu-stats-enabled": true
+            "target.init-us-ticker-at-boot": true,
+            "platform.cpu-stats-enabled": true,
+            "platform.crash-capture-enabled": true,
+            "platform.error-all-threads-info": true,
+            "platform.error-filename-capture-enabled": true,
+            "platform.error-hist-enabled": true,
+            "platform.fatal-error-auto-reboot-enabled": true,
+            "platform.heap-stats-enabled": true,
+            "platform.minimal-printf-enable-floating-point": true,
+            "platform.stack-stats-enabled": true,
+            "platform.sys-stats-enabled": true,
+            "platform.thread-stats-enabled": true
         },
-        "DISCO_F413ZH": {
-            "target.components_add": ["ism43362", "SD"],
-            "target.features_add": ["STORAGE"],
-            "ism43362.provide-default": true,
-            "SD.provide-default": true,
-            "target.macros_add" : ["MBEDTLS_SHA1_C"]
-        },
-        "DISCO_L475VG_IOT01A": {
-            "target.components_add": ["ism43362", "SD"],
-            "ism43362.provide-default": true,
-            "SD.provide-default": true,
-            "target.features_add": ["STORAGE"],
-            "target.macros_add" : ["MBEDTLS_SHA1_C"]
-        },
-        "DISCO_F746G": {
-            "target.components_add": ["ism43362", "SD"],
-            "ism43362.provide-default": true,
-            "SD.provide-default": true,
-            "target.features_add": ["STORAGE"],
-            "target.macros_add" : ["MBEDTLS_SHA1_C"]
-        },
-        "K64F": {
-            "target.components_add": ["ism43362", "SD"],
-            "ism43362.provide-default": true,
-            "SD.provide-default": true,
+        "DISCO_F746NG": {
+            "target.components_add": ["SD"],
             "target.features_add": ["STORAGE"],
             "target.macros_add" : ["MBEDTLS_SHA1_C"]
         }
