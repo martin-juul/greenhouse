@@ -10,7 +10,6 @@
 #include <cstdlib>
 #include "tasks.h"
 
-
 Thread thread_main;
 Thread thread_web_server;
 Thread thread_jukebox;

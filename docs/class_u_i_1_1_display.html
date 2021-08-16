@@ -114,10 +114,15 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00024">24</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  BSP_LCD_DisplayStringAt(10, LINE(line_no), (uint8_t *)<span class="stringliteral">&quot;                           &quot;</span>, LEFT_MODE);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  BSP_LCD_DisplayStringAt(0, LINE(line_no), (uint8_t *)<span class="stringliteral">&quot;                                              &quot;</span>, LEFT_MODE);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  BSP_LCD_DisplayStringAt(0, LINE(line_no), (uint8_t *)<span class="stringliteral">&quot;                                              &quot;</span>, CENTER_MODE);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  BSP_LCD_DisplayStringAt(0, LINE(line_no), (uint8_t *)<span class="stringliteral">&quot;                                              &quot;</span>, RIGHT_MODE);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">// this doesn&#39;t appear to work properly?</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  BSP_LCD_ClearStringLine(LINE(line_no));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00048">log()</a>, and <a class="el" href="ui_8cpp_source.html#l00083">update_stats()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="ui_8cpp_source.html#l00053">log()</a>, and <a class="el" href="ui_8cpp_source.html#l00088">update_stats()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -158,32 +163,32 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00028">28</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                   {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  BSP_LCD_Init();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER, LCD_FB_START_ADDRESS);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  BSP_LCD_SetFont(&amp;Font16);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  BSP_LCD_Clear(LCD_COLOR_BLACK);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  BSP_LCD_SetBackColor(LCD_COLOR_BLACK);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  BSP_LCD_SetTextColor(LCD_COLOR_WHITE);</div>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00033">33</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                   {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  BSP_LCD_Init();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER, LCD_FB_START_ADDRESS);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  BSP_LCD_DisplayStringAt(2, 2, (uint8_t *)<span class="stringliteral">&quot;greenhouse (server)&quot;</span>, LEFT_MODE);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  BSP_LCD_DrawHLine(0, 20, 480);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="ui_8cpp.html#ac2d7453cc42463221e2315af20027eb7">set_default_font</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  BSP_LCD_SetFont(&amp;Font16);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  BSP_LCD_Clear(LCD_COLOR_BLACK);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  BSP_LCD_SetBackColor(LCD_COLOR_BLACK);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  BSP_LCD_SetTextColor(LCD_COLOR_WHITE);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  BSP_LCD_DrawHLine(0, LINE(<a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a> - 1) - 1, 480);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  BSP_LCD_DisplayStringAt(10, LINE(<a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>) - 12, (uint8_t *)<span class="stringliteral">&quot;console&quot;</span>, LEFT_MODE);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  BSP_LCD_DrawHLine(0, LINE(<a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>), 480);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  BSP_LCD_DisplayStringAt(2, 2, (uint8_t *)<span class="stringliteral">&quot;greenhouse (server)&quot;</span>, LEFT_MODE);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  BSP_LCD_DrawHLine(0, 20, 480);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="ui_8cpp.html#ac2d7453cc42463221e2315af20027eb7">set_default_font</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  BSP_LCD_DrawHLine(0, LINE(<a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a> - 1) - 1, 480);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  BSP_LCD_DisplayStringAt(10, LINE(<a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>) - 12, (uint8_t *)<span class="stringliteral">&quot;console&quot;</span>, LEFT_MODE);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  BSP_LCD_DrawHLine(0, LINE(<a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>), 480);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="ttc" id="aui_8cpp_html_a7e91a2a529e1e5d9f0401f9c9f52da3e"><div class="ttname"><a href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a></div><div class="ttdeci">static const int LOG_Y_POS</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00016">ui.cpp:16</a></div></div>
 <div class="ttc" id="aui_8cpp_html_ac2d7453cc42463221e2315af20027eb7"><div class="ttname"><a href="ui_8cpp.html#ac2d7453cc42463221e2315af20027eb7">set_default_font</a></div><div class="ttdeci">void set_default_font()</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00020">ui.cpp:20</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00016">LOG_Y_POS</a>, and <a class="el" href="ui_8cpp_source.html#l00020">set_default_font()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00040">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="main_8cpp_source.html#l00039">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -234,28 +239,28 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00048">48</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                               {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a> &gt; <a class="code" href="ui_8cpp.html#a18cb74837b7f56ced90b6c31f3b8d49e">MAX_LOG_LINES</a>) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Clear display</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; 10; i++) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">clear_line</a>(LINE(i + <a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a> = 0;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  ++<a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a>;</div>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00053">53</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                               {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a> &gt; <a class="code" href="ui_8cpp.html#a18cb74837b7f56ced90b6c31f3b8d49e">MAX_LOG_LINES</a>) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Clear display</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; 10; i++) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">clear_line</a>(LINE(i + <a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  BSP_LCD_DisplayStringAt(10, LINE(<a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a> + <a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>), text, LEFT_MODE);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a> = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  ++<a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  BSP_LCD_DisplayStringAt(10, LINE(<a class="code" href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a> + <a class="code" href="ui_8cpp.html#a7e91a2a529e1e5d9f0401f9c9f52da3e">LOG_Y_POS</a>), text, LEFT_MODE);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="ttc" id="aclass_u_i_1_1_display_html_a3110949d10edc4e7b23526db8eabbb52"><div class="ttname"><a href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">UI::Display::clear_line</a></div><div class="ttdeci">void clear_line(int line_no)</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00024">ui.cpp:24</a></div></div>
 <div class="ttc" id="aui_8cpp_html_a18cb74837b7f56ced90b6c31f3b8d49e"><div class="ttname"><a href="ui_8cpp.html#a18cb74837b7f56ced90b6c31f3b8d49e">MAX_LOG_LINES</a></div><div class="ttdeci">static const int MAX_LOG_LINES</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00015">ui.cpp:15</a></div></div>
 <div class="ttc" id="aui_8cpp_html_afce72527ccdd305092fd08836e0ef602"><div class="ttname"><a href="ui_8cpp.html#afce72527ccdd305092fd08836e0ef602">log_idx</a></div><div class="ttdeci">int log_idx</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00017">ui.cpp:17</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="ui_8cpp_source.html#l00024">clear_line()</a>, <a class="el" href="ui_8cpp_source.html#l00017">log_idx</a>, <a class="el" href="ui_8cpp_source.html#l00016">LOG_Y_POS</a>, and <a class="el" href="ui_8cpp_source.html#l00015">MAX_LOG_LINES</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="storage__task_8cpp_source.html#l00021">Tasks::Storage::example()</a>, and <a class="el" href="main_8cpp_source.html#l00040">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="storage__task_8cpp_source.html#l00021">Tasks::Storage::example()</a>, and <a class="el" href="main_8cpp_source.html#l00039">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -318,36 +323,36 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00083">83</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                                      {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">clear_line</a>(3);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">clear_line</a>(4);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">string</span> uptime = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Uptime: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;uptime);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">string</span> idle_time = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Idle: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;idle_time);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">string</span> sleep = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Sleep: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;sleep_time);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">string</span> deep_sleep = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Deep sleep: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;deep_sleep_time);</div>
+<p class="definition">Definition at line <a class="el" href="ui_8cpp_source.html#l00088">88</a> of file <a class="el" href="ui_8cpp_source.html">ui.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                                      {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">clear_line</a>(3);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="class_u_i_1_1_display.html#a3110949d10edc4e7b23526db8eabbb52">clear_line</a>(4);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  BSP_LCD_DisplayStringAt(25, LINE(3), (uint8_t *)uptime.c_str(), LEFT_MODE);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  BSP_LCD_DisplayStringAt(120, LINE(3), (uint8_t *)idle_time.c_str(), LEFT_MODE);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  BSP_LCD_DisplayStringAt(205, LINE(3), (uint8_t *)sleep.c_str(), LEFT_MODE);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  BSP_LCD_DisplayStringAt(300, LINE(3), (uint8_t *)deep_sleep.c_str(), LEFT_MODE);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">string</span> uptime = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Uptime: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;uptime);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">string</span> idle_time = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Idle: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;idle_time);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">string</span> sleep = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Sleep: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;sleep_time);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordtype">string</span> deep_sleep = <a class="code" href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a>(<span class="stringliteral">&quot;Deep sleep: &quot;</span>, <span class="stringliteral">&quot;s&quot;</span>, stats-&gt;deep_sleep_time);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  uint64_t diff_usec = (stats-&gt;idle_time - <a class="code" href="ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73">prev_idle_time</a>);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  uint8_t idle = (diff_usec * 100) / (sample_time_ms*1000);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  uint8_t usage = 100 - ((diff_usec * 100) / (sample_time_ms*1000));</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73">prev_idle_time</a> = stats-&gt;idle_time;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  BSP_LCD_DisplayStringAt(25, LINE(3), (uint8_t *)uptime.c_str(), LEFT_MODE);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  BSP_LCD_DisplayStringAt(120, LINE(3), (uint8_t *)idle_time.c_str(), LEFT_MODE);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  BSP_LCD_DisplayStringAt(205, LINE(3), (uint8_t *)sleep.c_str(), LEFT_MODE);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  BSP_LCD_DisplayStringAt(300, LINE(3), (uint8_t *)deep_sleep.c_str(), LEFT_MODE);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">string</span> usage_str = string(<span class="stringliteral">&quot;Usage: &quot;</span>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  usage_str.append(std::to_string(usage));</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  usage_str.append(<span class="stringliteral">&quot;%&quot;</span>);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  BSP_LCD_DisplayStringAt(25, LINE(4), (uint8_t *)usage_str.c_str(), LEFT_MODE);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
-<div class="ttc" id="aui_8cpp_html_a160f6ee73565d9d01a13e38c949b32da"><div class="ttname"><a href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a></div><div class="ttdeci">string make_stat_str(string label, string suffix, uint64_t us)</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00075">ui.cpp:75</a></div></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  uint64_t diff_usec = (stats-&gt;idle_time - <a class="code" href="ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73">prev_idle_time</a>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  uint8_t idle = (diff_usec * 100) / (sample_time_ms*1000);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  uint8_t usage = 100 - ((diff_usec * 100) / (sample_time_ms*1000));</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73">prev_idle_time</a> = stats-&gt;idle_time;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">string</span> usage_str = string(<span class="stringliteral">&quot;Usage: &quot;</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  usage_str.append(std::to_string(usage));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  usage_str.append(<span class="stringliteral">&quot;%&quot;</span>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  BSP_LCD_DisplayStringAt(25, LINE(4), (uint8_t *)usage_str.c_str(), LEFT_MODE);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="ttc" id="aui_8cpp_html_a160f6ee73565d9d01a13e38c949b32da"><div class="ttname"><a href="ui_8cpp.html#a160f6ee73565d9d01a13e38c949b32da">make_stat_str</a></div><div class="ttdeci">string make_stat_str(string label, string suffix, uint64_t us)</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00080">ui.cpp:80</a></div></div>
 <div class="ttc" id="aui_8cpp_html_aeda40d9d56bdfef0435097dcb6620b73"><div class="ttname"><a href="ui_8cpp.html#aeda40d9d56bdfef0435097dcb6620b73">prev_idle_time</a></div><div class="ttdeci">uint64_t prev_idle_time</div><div class="ttdef"><b>Definition:</b> <a href="ui_8cpp_source.html#l00018">ui.cpp:18</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="ui_8cpp_source.html#l00024">clear_line()</a>, <a class="el" href="ui_8cpp_source.html#l00075">make_stat_str()</a>, and <a class="el" href="ui_8cpp_source.html#l00018">prev_idle_time</a>.</p>
+<p class="reference">References <a class="el" href="ui_8cpp_source.html#l00024">clear_line()</a>, <a class="el" href="ui_8cpp_source.html#l00080">make_stat_str()</a>, and <a class="el" href="ui_8cpp_source.html#l00018">prev_idle_time</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="stats__task_8cpp_source.html#l00021">collect_stats()</a>.</p>
 <div class="dynheader">
@@ -383,7 +388,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 16 2021 20:21:16 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 16 2021 20:30:22 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -73,7 +73,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;TCPSocket.h&quot;</code><br />
-<code>#include &quot;TLSSocket.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="database_8h_source.html">database.h</a>&quot;</code><br />
 <code>#include &quot;socket.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -81,13 +80,12 @@ Include dependency graph for webserver.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="webserver_8h__incl.png" border="0" usemap="#ainclude_2webserver_8h" alt=""/></div>
 <map name="ainclude_2webserver_8h" id="ainclude_2webserver_8h">
-<area shape="rect" title=" " alt="" coords="168,5,308,32"/>
+<area shape="rect" title=" " alt="" coords="104,5,244,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,105,107"/>
-<area shape="rect" title=" " alt="" coords="130,80,229,107"/>
-<area shape="rect" href="database_8h.html" title=" " alt="" coords="253,80,341,107"/>
-<area shape="rect" title=" " alt="" coords="365,80,437,107"/>
-<area shape="rect" title=" " alt="" coords="228,155,283,181"/>
-<area shape="rect" title=" " alt="" coords="307,155,366,181"/>
+<area shape="rect" href="database_8h.html" title=" " alt="" coords="130,80,218,107"/>
+<area shape="rect" title=" " alt="" coords="242,80,314,107"/>
+<area shape="rect" title=" " alt="" coords="105,155,160,181"/>
+<area shape="rect" title=" " alt="" coords="185,155,243,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -112,60 +110,8 @@ Data Structures</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a5e78aaff1b2384e77c72a6cc825e2d4c"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8h.html#a5e78aaff1b2384e77c72a6cc825e2d4c">MAX_CONN</a> = 5</td></tr>
 <tr class="separator:a5e78aaff1b2384e77c72a6cc825e2d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5f4558c0d2bb5827f079489adc4e000"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8h.html#af5f4558c0d2bb5827f079489adc4e000">cert</a> []</td></tr>
-<tr class="separator:af5f4558c0d2bb5827f079489adc4e000"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8698b8c55221a0175767b03770a42b6"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="webserver_8h.html#aa8698b8c55221a0175767b03770a42b6">private_key</a> []</td></tr>
-<tr class="separator:aa8698b8c55221a0175767b03770a42b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="af5f4558c0d2bb5827f079489adc4e000"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5f4558c0d2bb5827f079489adc4e000">&#9670;&nbsp;</a></span>cert</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char cert[]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    <span class="stringliteral">&quot;-----BEGIN CERTIFICATE-----\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;MIID3zCCAsegAwIBAgIUMftUP+WG7Y3BBMd+HmqYMgpmDM8wDQYJKoZIhvcNAQEL\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;BQAwfzELMAkGA1UEBhMCREsxEzARBgNVBAgMClN5ZGRhbm1hcmsxDzANBgNVBAcM\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;Bk9kZW5zZTETMBEGA1UECgwKR3JlZW5ob3VzZTEWMBQGA1UEAwwNMTkyLjE2OC4x\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;LjEwMDEdMBsGCSqGSIb3DQEJARYObG9jYWxob3N0QHJvb3QwHhcNMjEwODA1MDgz\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;MjM0WhcNMjEwOTA0MDgzMjM0WjB/MQswCQYDVQQGEwJESzETMBEGA1UECAwKU3lk\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;ZGFubWFyazEPMA0GA1UEBwwGT2RlbnNlMRMwEQYDVQQKDApHcmVlbmhvdXNlMRYw\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;FAYDVQQDDA0xOTIuMTY4LjEuMTAwMR0wGwYJKoZIhvcNAQkBFg5sb2NhbGhvc3RA\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;cm9vdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJJf1sS7HnUY/MZ6\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;t8O0BJ8G1mpMbqTK5ZFxTCsu7ReujVi+ppiBufPYRf+dIFslpS0YOVJ+4Ep/vTaK\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;62F/tbfc62AcJ2LV+NGGekg7advYvStsE08XQntTf6eKF0djzkEq6jePvibuVcvX\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;cWSKjBe0wP3K94Nm9/Kb7zraVlAGhUgm5lgZG62g9Uk5TNaFTjN6SDXDauiKMHND\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;b8V3k9OKON51OshMpl7CIZUzXoITW6k1kfj06AKKv2i8A3Mf08ImGXllRH0Mioer\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;VkMtgGaFC9E+vj1Xhafhsjm21bIbYX1UXR3sAtSiu9QGqAIGpgTET/F4F8u8xmQs\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;vH3uCsECAwEAAaNTMFEwHQYDVR0OBBYEFNwuKckENZtjlw+PA4b2lCOEbfhPMB8G\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;A1UdIwQYMBaAFNwuKckENZtjlw+PA4b2lCOEbfhPMA8GA1UdEwEB/wQFMAMBAf8w\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;DQYJKoZIhvcNAQELBQADggEBACMdgHCXeZ/Pp5a+Oq8p9SMetCNTbV5B+TiqUD8w\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;d8T9jVqCw5lQ20gCWg4Om7rsZMs2XN5OrWj7ExiY1C3bSMCjiTdyIbjTTysAoodS\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;wlX0r/O9RtJeNrlSMFFvxlJqmiRlAQhE4Sa5Ql+2E2kcXEf7CCxW+ksTpdFgKonh\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;vigGj9KHiE6Bko6Gu2VS8PEWshT94sOQYxLqQUWSvSztyhDDlNqi4ZCEgek1+0K5\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;9RkovM3Wib6U1Ulbr6edPE0saPGCy2icA8OE5pQXHrqjLH58OtZcydkia/KtVdMv\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;/MWZJ2H9oTi1ftEIauqM0rqrPKeiYDzNuAsecYwRtI4K22o=\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;-----END CERTIFICATE-----&quot;</span></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="webserver_8h_source.html#l00010">10</a> of file <a class="el" href="webserver_8h_source.html">webserver.h</a>.</p>
-
-</div>
-</div>
 <a id="a5e78aaff1b2384e77c72a6cc825e2d4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e78aaff1b2384e77c72a6cc825e2d4c">&#9670;&nbsp;</a></span>MAX_CONN</h2>
 
@@ -186,69 +132,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="webserver_8h_source.html#l00008">8</a> of file <a class="el" href="webserver_8h_source.html">webserver.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="webserver_8h_source.html#l00007">7</a> of file <a class="el" href="webserver_8h_source.html">webserver.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="webserver_8cpp_source.html#l00028">WebServer::start()</a>.</p>
-
-</div>
-</div>
-<a id="aa8698b8c55221a0175767b03770a42b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8698b8c55221a0175767b03770a42b6">&#9670;&nbsp;</a></span>private_key</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char private_key[]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    <span class="stringliteral">&quot;-----BEGIN PRIVATE KEY-----\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCSX9bEux51GPzG\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;erfDtASfBtZqTG6kyuWRcUwrLu0Xro1YvqaYgbnz2EX/nSBbJaUtGDlSfuBKf702\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;iuthf7W33OtgHCdi1fjRhnpIO2nb2L0rbBNPF0J7U3+nihdHY85BKuo3j74m7lXL\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;13FkiowXtMD9yveDZvfym+862lZQBoVIJuZYGRutoPVJOUzWhU4zekg1w2roijBz\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;Q2/Fd5PTijjedTrITKZewiGVM16CE1upNZH49OgCir9ovANzH9PCJhl5ZUR9DIqH\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;q1ZDLYBmhQvRPr49V4Wn4bI5ttWyG2F9VF0d7ALUorvUBqgCBqYExE/xeBfLvMZk\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;LLx97grBAgMBAAECggEAbfgM7c67KjR0rFVEPIbBtgw4CLKVqb85zBR3qjXeMJ2W\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;WecaWJeV8go5RLpytafJueBqKH1j2vSvXgvunViKWLFkMNfWC15ASoIi2qOwe1gR\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;f076DsCl1Ou9i0ynAp6MNc+dGdMnhC4pTTT2Xxfr+l91YvcbD6DLhXz7tZaVpBav\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;K66rl15LwXEHV2JjhnCTgMyvWs4QgBBRUrKRjtWPXjFAXrwcVu+JKwlRASPi35Xo\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;HWZZpBx0/1B/X5dIjEo6A7bl+j7YzAa3yCV/qswAp685dVzAO+Ds3K925aP4M0Cw\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;Y7G0u79O7GhHG4RkJWk1QPhpPsKUO6zlY9e8lCtbZQKBgQDB5Q77AuRT7pvNaIZP\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;7xcl1Ewufe8Gs6oG0qREnMxbf3T3Ui3w2R1cSdtkvGYSLT78T7/tXj+YYP1OdIOy\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;21uATdBoTTUSKrel+d9mVy87FGc5U58PrKyTO80+RJJMCeowZhnuO+RK0GNwhVPz\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;IZKSF+tbmYPbFJoZIps3TKveAwKBgQDBQjawA2p5JNWz14S+1HkU8fI1XEWy+IB3\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;eiMEcppU3nHXzxu6c/oAM4M02xBxQTAHLBZxXMdDieCYjpHGIvcAnRZu6/4vEpsV\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;vDRZ8f64hN4ueXPqeqMnjRQTWRsgs7GUuptPbK+cy1g3ll5QBV3uLVIxDNm4dq20\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;89fC3hRq6wKBgGzdrJyZUhQiLA6X+pnU951A5wlPoi6UIAo2qQ7xLvjMxqK63JqX\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;fRm9Slb0RSc9iljmei/PtEtdYbx0RSHecjDHABYgC4VIwNaLRrjSiO1WFmMkpXGK\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;lVcRw7qLi8zv4DMOkM6niBXNjZe29JzVo9MtZPOIbXVLyv4D5TyWawV7AoGAadcN\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;hFAam8Ykk53QwYIz3dizwa2LLn0SPlzRmLn688fvqTVwBilGHZ4YmXXwB1agKw1m\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;LSeWqdJ1ApfyFgVIKTne81ijmLwj2z97nFcAHaYG2IUDisMnX53QBNikFsDS3JVm\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;QZVQiBqFccwUUtbdnneLr/lNs8yrTZLN85cUr4kCgYAWpsOvptW9hLcbIFrI1lXH\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;K1bZh/6ojZ9T7RtxuM2uK0+XuCYB3j+o3NkMeHG8snzrNX0WwWWZVVccYZrYyjuA\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;SbgLd+Ou7IY9Xh5cuDJQkc7Du86QlT6MqfGJgy85M5JlB2rmiW81hl0z1qQeCoke\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;YjR9+Dyk0G5qcPmZK6Gn2Q==\n&quot;</span></div>
-<div class="line">    <span class="stringliteral">&quot;-----END PRIVATE KEY-----&quot;</span></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="webserver_8h_source.html#l00035">35</a> of file <a class="el" href="webserver_8h_source.html">webserver.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 16 2021 20:21:16 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 16 2021 20:30:21 for greenhouse by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

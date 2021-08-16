@@ -22,7 +22,12 @@ void set_default_font() {
 }
 
 void Display::clear_line(int line_no) {
-  BSP_LCD_DisplayStringAt(10, LINE(line_no), (uint8_t *)"                           ", LEFT_MODE);
+  BSP_LCD_DisplayStringAt(0, LINE(line_no), (uint8_t *)"                                              ", LEFT_MODE);
+  BSP_LCD_DisplayStringAt(0, LINE(line_no), (uint8_t *)"                                              ", CENTER_MODE);
+  BSP_LCD_DisplayStringAt(0, LINE(line_no), (uint8_t *)"                                              ", RIGHT_MODE);
+
+  // this doesn't appear to work properly?
+  BSP_LCD_ClearStringLine(LINE(line_no));
 }
 
 void Display::init() {
